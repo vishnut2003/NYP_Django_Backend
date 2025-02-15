@@ -1,0 +1,269 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Admission Registration Page -------------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %}
+{% block main_content %}
+{% load static %}
+<div class="phStickyWrap">
+    {% include 'Main/header.html' %}
+</div>
+
+<body>
+    <div class="d-lg-flex half">
+        <div class="container mb-16">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                    <center>
+                        <h3 id="admission_registration">ADMISSION REGISTRATION</h3>
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                            </div>
+                            <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                            </div>
+                        </div>
+                    </center>
+                    <!-- > <center>
+                        <p class="mb-4">Error Message Comes Here</p>
+                        </center> -->
+                        <div class="text-center alert alert-danger" id="error00" role="alert" style="display:none;"></div>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="fname">Registration Number <span
+                                                class="text-danger">*</span></label>
+                                        <input value="{{reg_id}}" readonly type="text" id="registration_num" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="lname">Name Of Student <span class="text-danger">*</span></label>
+                                        <input type="text" id="NameOfStudent" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group first">
+                                        <label for="fname">Address <span class="text-danger">*</span></label>
+                                        <textarea type="text" id="address" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="fname">ID Number <span class="text-danger">*</span></label>
+                                        <input type="text" id="idNumber" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="lname">Date Of Birth <span class="text-danger">*</span></label>
+                                        <input type="date" id="datepicker" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="fname">Mobile Number <span class="text-danger">*</span></label>
+                                        <input type="number" id="MobileNumber" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="fname">College Name <span class="text-danger">*</span></label>
+                                        <select class="form-control" id="CollegeName">
+                                            <option value="" selected>Select</option>
+                                            {% for cl in all_college_name %}
+                                            <option value="{{cl.id}}">{{cl.college_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="fname">District <span class="text-danger">*</span></label>
+                                        <input type="text" id="District" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="lname">Course Name <span class="text-danger">*</span></label>
+                                        <select class="form-control" id="CourseName">
+                                            <option value="" selected>Select</option>
+                                            {% for cr in all_course_name %}
+                                            <option value="{{cr.id}}">{{cr.course_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="fname">Admission Fees <span class="text-danger">*</span></label>
+                                        <input type="number" id="AdmissionFees" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="lname">Admission Date <span
+                                                class="text-danger">*</span></label>
+                                        <input id="datepicker2" type="date" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group first">
+                                        <label for="fname">Principal Approval <span class="text-danger">*</span></label>
+                                        <select class="form-control" id="PrincipalApproval">
+                                            <option value="" selected>Select</option>
+                                            {% for st in all_status %}
+                                            <option value="{{st.id}}">{{st.status}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" onclick="admision_regiterform()" value="Submit Form"
+                                class="btn px-5 btn-primary" style="background-color: #3446CD;" />
+                        </form>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'forms/js/popper.min.js' %}"></script>
+      <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'forms/js/main.js' %}"></script>
+
+        <script>
+            function admision_regiterform() {
+                let registrationNum = document.getElementById("registration_num").value;
+                let nameOfStudent = document.getElementById("NameOfStudent").value;
+                let address = document.getElementById("address").value;
+                let idNumber = document.getElementById("idNumber").value;
+                let date = document.getElementById("datepicker").value;
+                let mobileNumber = document.getElementById("MobileNumber").value;
+                let collegeName = document.getElementById("CollegeName").value;
+                let district = document.getElementById("District").value;
+                let courseName = document.getElementById("CourseName").value;
+                let admissionFees = document.getElementById("AdmissionFees").value;
+                let admission_date = document.getElementById("datepicker2").value;
+                let principalApproval = document.getElementById("PrincipalApproval").value;
+                let er = document.querySelector("#error00");
+            
+                if (registrationNum === "") {
+                    er.innerHTML = "Enter Registration Number";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (nameOfStudent === "") {
+                    er.innerHTML = "Enter Name of Student";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (address === "") {
+                    er.innerHTML = "Enter Address";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (idNumber === "") {
+                    er.innerHTML = "Enter ID Number";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (date === "") {
+                    er.innerHTML = "Select the Date of Birth";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (mobileNumber === "") {
+                    er.innerHTML = "Enter Mobile Number";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (collegeName === "") {
+                    er.innerHTML = "Select College Name";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (district === "") {
+                    er.innerHTML = "Enter District";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (courseName === "") {
+                    er.innerHTML = "Select Course Name";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (admissionFees === "") {
+                    er.innerHTML = "Enter Admission Fees";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (admission_date === "") {
+                    er.innerHTML = "Select Admission date";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else if (principalApproval === "") {
+                    er.innerHTML = "Select Principal Approval";
+                    er.style.display = "block";
+                    window.location.href = "#admission_registration";
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/admission_registration",
+                        data: {
+                            registrationNum: registrationNum,
+                            nameOfStudent: nameOfStudent,
+                            address: address,
+                            idNumber: idNumber,
+                            date: date,
+                            mobileNumber: mobileNumber,
+                            collegeName: collegeName,
+                            district: district,
+                            courseName: courseName,
+                            admissionFees: admissionFees,
+                            admission_date: admission_date,
+                            principalApproval: principalApproval,
+                            csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(), // Replace with the actual CSRF token
+                        },
+                        success: function (response) {
+                            if (response === "Save") {
+                                er.setAttribute("class", "text-center alert alert-success");
+                                er.innerHTML = "Form submission successful";
+                                er.style.display = "block";
+                                window.location.href = "#admission_registration";
+            
+                                setTimeout(() => {
+                                    window.location.href = "/admission_registration";
+                                }, 4000);
+                            } else {
+                                alert("Oops, something went wrong");
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            alert("Error: " + error);
+                        }
+                    });
+                }
+            }
+            
+        </script>
+
+        <script>
+            $(function () {
+                $("#datepicker").datepicker({
+                    dateFormat: "yy-mm-dd"
+                });
+
+                $("#datepicker2").datepicker({
+                    dateFormat: "yy-mm-dd"
+                });
+            });
+        </script>
+        {% endblock %}
+</body>

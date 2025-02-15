@@ -1,0 +1,23 @@
+<!--
+   Made By -: Python World
+   Youtube -: www.youtube.com/pythonworldtech
+   website - :www.pythonworldtech.in
+   email - :pythonworldtech@gmail.com
+   Copyright © 2022-23 Python World
+   -->
+<style>
+    .error_message{
+       text-align: center;
+       margin-bottom: 8px;
+    }
+ </style>
+ {% if messages %}
+ {% for message in messages %}
+ <p {% if message.tags %} style="color: rgb(16, 120, 16); font-size: 16px;" class="error_message alert alert-{{message.tags}} mb-5" {% endif %} >{{message}}</p>
+ {% endfor %}
+ {% endif %}
+ {% if error %}
+ <div style="color: red; font-size: 16px;" class="error_message alert alert-danger" role="alert">
+    {{error}}
+ </div>
+ {% endif %}

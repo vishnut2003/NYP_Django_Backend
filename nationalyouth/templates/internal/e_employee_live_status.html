@@ -1,0 +1,489 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- E-Employee Live Status Page -------------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %}
+{% block main_content %}
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="phStickyWrap">
+   {% include 'Main/header.html' %}
+</div>
+<style>
+   .hidden {
+   display: none;
+   }
+</style>
+<body>
+   <div class="d-lg-flex half">
+   <div class="container mb-16">
+   <div class="row align-items-center justify-content-center">
+   <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+   <center>
+      <h3 id="e_employee_live_and_leave_status">E-Employee Live Status</h3>
+      <div style="display: flex; flex-direction: column; align-items: center;">
+         <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+         </div>
+         <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+         </div>
+      </div>
+   </center>
+   <!-- <center>
+      <p class="mb-4">Error Message Comes Here</p>
+      </center> -->
+   <div class="text-center alert alert-danger" id="erorr" role="alert" style="display:none;"></div>
+   <select class="form-control" id="formSelector">
+      <option value="None">Select</option>
+      <option value="2">Application For Leave</option>
+      <option value="3">Employee Live Status</option>
+   </select>
+
+   <!----------------------------------------------------------Form 1 ---------------------------------------------------->
+   <!--------------------------------------------------------------------------------------------------------------------->
+   <form id="None" style="margin-top: 20px;" method="post">
+      {% csrf_token %}
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Employee ID Number <span class="text-danger">*</span></label>
+               <input type="text" id="Employee_ID_Number" class="form-control">
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Employee Name <span class="text-danger">*</span></label>
+               <input type="text" id="Employee_Namec" class="form-control">
+            </div>
+         </div>
+      </div>
+      <input type="button" onclick="live_and_leave_status_form()" value="Submit Form" class="btn px-5 btn-primary"
+         style="background-color: #3446CD;" />
+   </form>
+   <!-------------------------------------------------------------------------------------------------------------------->
+   <!-------------------------------------------------------------------------------------------------------------------->
+
+
+
+   <!----------------------------------------------------------Form 2 ---------------------------------------------------->
+   <!--------------------------------------------------------------------------------------------------------------------->
+   <form id="2" class="hidden" style="margin-top: 20px;" method="post">
+      {% csrf_token %}
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Employee ID Number <span class="text-danger">*</span></label>
+               <input type="text" id="Employee_ID_Number2" class="form-control">
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Employee Name <span class="text-danger">*</span></label>
+               <input type="text" id="Employee_Name2" class="form-control">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Purpose 1 <span class="text-danger">*</span></label>
+               <textarea type="text" id="purpose1" class="form-control"></textarea>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Walking Distance <span class="text-danger">*</span></label>
+               <input type="text" id="walking_distance1" class="form-control">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Purpose 2 <span class="text-danger">*</span></label>
+               <textarea type="text" id="purpose2" class="form-control"></textarea>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Walking Distance <span class="text-danger">*</span></label>
+               <input type="text" id="walking_distance2" class="form-control">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Purpose 3 <span class="text-danger">*</span></label>
+               <textarea type="text" id="purpose3" class="form-control"></textarea>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Walking Distance <span class="text-danger">*</span></label>
+               <input type="text" id="walking_distance3" class="form-control">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Staff (Out Time) <span class="text-danger">*</span></label>
+               <input type="time" id="staff_out_time" class="form-control">
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Staff (In Time) <span class="text-danger">*</span></label>
+               <input type="time" id="staff_in_time" class="form-control">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Status <span class="text-danger">*</span></label>
+               <select id="current_status3" class="form-control">
+                  <option value="" selected>Select</option>
+                  {% for wk in all_status %}
+                  <option value="{{wk.id}}">{{wk.status}}</option>
+                  {% endfor %}
+               </select>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Remark <span class="text-danger">*</span></label>
+               <input type="text" id="remark" class="form-control">
+            </div>
+         </div>
+      </div>
+      <input type="button" onclick="leave_status_form()" value="Submit Form" class="btn px-5 btn-primary"
+         style="background-color: #3446CD;" />
+   </form>
+   <!-------------------------------------------------------------------------------------------------------------------->
+   <!-------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+   <!----------------------------------------------------------Form 3 ---------------------------------------------------->
+   <!--------------------------------------------------------------------------------------------------------------------->
+   <form id="3" class="hidden" style="margin-top: 20px;" method="post">
+      {% csrf_token %}
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Employee ID Number <span class="text-danger">*</span></label>
+               <input type="text" id="Employee_ID_Number3" class="form-control">
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Employee Name <span class="text-danger">*</span></label>
+               <input type="text" id="Employee_Name3" class="form-control">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Nature Of Leave <span class="text-danger">*</span></label>
+               <select id="nature_of_leave" class="form-control">
+                  <option value="" selected>Select</option>
+                  {% for nl in all_nature_of_leave %}
+                  <option value="{{nl.id}}">{{nl.nature_of_leave}}</option>
+                  {% endfor %}
+               </select>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Remark <span class="text-danger">*</span></label>
+               <input type="text" id="remark2" class="form-control">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Date <span class="text-danger">*</span></label>
+               <input id="datepicker" type="date" class="form-control">
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group first">
+               <label>Status <span class="text-danger">*</span></label>
+               <select id="current_status2" class="form-control">
+                  <option value="" selected>Select</option>
+                  {% for wk in all_status %}
+                  <option value="{{wk.id}}">{{wk.status}}</option>
+                  {% endfor %}
+               </select>
+            </div>
+         </div>
+      </div>
+      <input type="button" onclick="live_status_form()" value="Submit Form" class="btn px-5 btn-primary"
+         style="background-color: #3446CD;" />
+   </form>
+   <!-------------------------------------------------------------------------------------------------------------------->
+   <!-------------------------------------------------------------------------------------------------------------------->
+
+
+
+</body>
+</html>
+<script>
+   $(document).ready(function() {
+   $('#formSelector').on('change', function() {
+     var selectedForm = $(this).val();
+     $('form').addClass('hidden');
+     $('#' + selectedForm).removeClass('hidden');
+   });
+   });
+</script>
+
+
+<script>
+   function live_and_leave_status_form() {
+      let Employee_Live = document.getElementById("formSelector").value;
+      let Employee_ID_Number = document.getElementById("Employee_ID_Number").value;
+      let Employee_Namec = document.getElementById("Employee_Namec").value;
+      let er=document.getElementById("erorr")
+
+      if (Employee_Live === "") {
+         er.innerHTML = "Select Employee Status";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (Employee_ID_Number === "") {
+         er.innerHTML = "Enter Employee ID Number";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (Employee_Namec === "") {
+         er.innerHTML = "Enter Employee Name";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+
+      } else {
+         $.ajax({
+            type: "post",
+            url: "/e_employee_live_and_leave_status",
+            data: {
+               Employee_Live: Employee_Live,
+               Employee_ID_Number: Employee_ID_Number,
+               Employee_Namec: Employee_Namec,
+
+               csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+            },
+            success: function (response) {
+               if (response === "Save") {
+                  er.setAttribute("class", "text-center alert alert-success");
+                  er.style.display = "block"
+                  er.innerHTML = "Form submission Successfully"
+                  window.location.href = "#e_employee_live_and_leave_status"
+
+                  setTimeout(() => {
+                     window.location.href = "/e_employee_live_and_leave_status"
+
+                  }, 4000)
+
+               } else {
+                  alert("Ooops, something went wrong");
+               }
+            },
+         });
+      }
+   }
+</script>
+
+
+
+<script>
+   function leave_status_form() {
+      let get_Employee_ID_Number2 = document.getElementById("Employee_ID_Number2").value;
+      let get_Employee_Name2 = document.getElementById("Employee_Name2").value;
+      let get_purpose1 = document.getElementById("purpose1").value;
+      let get_walking_distance1 = document.getElementById("walking_distance1").value;
+      let get_purpose2 = document.getElementById("purpose2").value;
+      let get_walking_distance2 = document.getElementById("walking_distance2").value;
+      let get_purpose3 = document.getElementById("purpose3").value;
+      let get_walking_distance3 = document.getElementById("walking_distance3").value;
+      let get_staff_out_time = document.getElementById("staff_out_time").value;
+      let get_staff_in_time = document.getElementById("staff_in_time").value;
+      let get_current_status3 = document.getElementById("current_status3").value;
+      let get_remark = document.getElementById("remark").value;
+      let er=document.getElementById("erorr")
+
+
+      if (get_Employee_ID_Number2 === "") {
+         er.innerHTML = "Enter Employee ID Number";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_Employee_Name2 === "") {
+         er.innerHTML = "Enter Employee Name";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_purpose1 === "") {
+         er.innerHTML = "Enter Purpose 1";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_walking_distance1 === "") {
+         er.innerHTML = "Enter Waking Distance 1";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_staff_out_time === "") {
+         er.innerHTML = "Select staff out time";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_staff_in_time === "") {
+         er.innerHTML = "Select staff in time";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_current_status3 === "") {
+         er.innerHTML = "Select status";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_remark === "") {
+         er.innerHTML = "Enter Remark";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else {
+         $.ajax({
+            type: "post",
+            url: "/e_employee_leave_status",
+            data: {
+               send_Employee_ID_Number2: get_Employee_ID_Number2,
+               send_Employee_Name2: get_Employee_Name2,
+               send_purpose1: get_purpose1,
+               send_walking_distance1: get_walking_distance1,
+               send_purpose2: get_purpose2,
+               send_walking_distance2: get_walking_distance2,
+               send_purpose3: get_purpose3,
+               send_walking_distance3: get_walking_distance3,
+               send_staff_out_time: get_staff_out_time,
+               send_staff_in_time: get_staff_in_time,
+               send_current_status3: get_current_status3,
+               send_remark:get_remark,
+               csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+            },
+            success: function (response) {
+               if (response === "Save") {
+                  er.setAttribute("class", "text-center alert alert-success");
+                  er.style.display = "block"
+                  er.innerHTML = "Form submission Successfully"
+                  window.location.href = "#e_employee_live_and_leave_status"
+
+                  setTimeout(() => {
+                     window.location.href = "/e_employee_live_and_leave_status"
+
+                  }, 4000)
+
+               } else {
+                  alert("Ooops, something went wrong");
+               }
+            },
+         });
+      }
+   }
+</script>
+
+
+<script>
+   function live_status_form() {
+      let get_Employee_Live = document.getElementById("formSelector").value;
+      let get_Employee_ID_Number3 = document.getElementById("Employee_ID_Number3").value;
+      let get_Employee_Name3 = document.getElementById("Employee_Name3").value;
+      let get_nature_of_leave = document.getElementById("nature_of_leave").value;
+      let get_remark2 = document.getElementById("remark2").value;
+      let get_datepicker = document.getElementById("datepicker").value;
+      let get_current_status2 = document.getElementById("current_status2").value;
+      let er=document.getElementById("erorr")
+
+
+      // console.log("Employee_Live:", Employee_Live);
+      // console.log("Employee_ID_Number3:", Employee_ID_Number3);
+      // console.log("Employee_Name3:", Employee_Name3);
+      // console.log("nature_of_leave:", nature_of_leave);
+      // console.log("remark2:", remark2);
+      // console.log("datepicker:", datepicker);
+      // console.log("current_status2:", current_status2);
+
+      if (get_Employee_ID_Number3 === "") {
+         er.innerHTML = "Enter Employee ID Number";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_Employee_Name3 === "") {
+         er.innerHTML = "Enter Employee Name";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_nature_of_leave === "") {
+         er.innerHTML = "Select Nature Of leave";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_remark2 === "") {
+         er.innerHTML = "Enter Remark";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_datepicker === "") {
+         er.innerHTML = "Select Date";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+      } else if (get_current_status2 === "") {
+         er.innerHTML = "Select Status";
+         window.location.href = "#e_employee_live_and_leave_status";
+         er.style.display = "block";
+
+      } else {
+         $.ajax({
+            type: "post",
+            url: "/e_employee_live_status",
+            data: {
+               send_Employee_Live: get_Employee_Live,
+               send_Employee_ID_Number: get_Employee_ID_Number3,
+               send_Employee_Namec: get_Employee_Name3,
+               send_nature_of_leave: get_nature_of_leave,
+               send_remark2: get_remark2,
+               send_datepicker: get_datepicker,
+               send_current_status2: get_current_status2,
+               csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+            },
+            success: function (response) {
+               if (response === "Save") {
+                  er.setAttribute("class", "text-center alert alert-success");
+                  er.style.display = "block"
+                  er.innerHTML = "Form submission Successfully"
+                  window.location.href = "#e_employee_live_and_leave_status"
+
+                  setTimeout(() => {
+                     window.location.href = "/e_employee_live_and_leave_status"
+
+                  }, 4000)
+
+               } else {
+                  alert("Ooops, something went wrong");
+               }
+            },
+         });
+      }
+   }
+</script>
+
+<script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'forms/js/popper.min.js' %}"></script>
+<script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'forms/js/main.js' %}"></script>
+
+<script>
+   $(function () {
+       $("#datepicker").datepicker({
+           dateFormat: "yy-mm-dd"
+       });
+   });
+</script>
+
+
+
+</body>
+{% endblock %}

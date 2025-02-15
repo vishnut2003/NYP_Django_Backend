@@ -1,0 +1,309 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Header Page ------------------------------------------------>
+<!--------------------------------------------------------------------------------------------------->
+{% load static %}
+<header id="pageHeader" class="bg-white">
+    <div class="hdTopBar py-2 py-xl-3 pb-2" style="background-color: #3446cd; display: none; display: -webkit-box;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 pt-4">
+                    <a href="tel:1800 123 000">
+                        <i class="fas fa-phone align-middle icn" style="color: yellow;">
+                            <span class="sr-only">icon</span></i>
+                        <span style="color: white;font-size: 15px;">Call on: 1800 123 000</span>
+                    </a>
+                </div>
+                <div class="col-md-3 pt-4">
+                    <time datetime="2023-06-12">
+                        <i class="fa fa-clock align-middle icn" style="color: yellow;"><span
+                                class="sr-only">icon</span></i>
+                        <span style="color: white;font-size: 15px;">Mon – Fri (9:30 AM to 5:30 PM)
+                    </time>
+                </div>
+                <div class="col-md-4 pt-4"> <a>
+                        <i class="fas fa-phone align-middle icn" style="color: yellow;"><span
+                                class="sr-only">icon</span></i>
+                        <span style="color: white;font-size: 15px;">E-mail: secretary@nypyest.in</span>
+                    </a>
+                </div>
+                <div class="col-md-3 pb-2">
+                    <a href="/student_certificate__verification"
+                        class="btn btnTheme d-flex font-weight-bold text-capitalize position-relative border-0 p-0 mt-2 btnWidthSmall"
+                        data-hover="Student Certificate Verification">
+                        <span class="d-block btnText">
+                            Student Certificate Verification
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hdFixerWrap py-2 py-md-3 py-xl-5 sSticky" style="background-color: #ffffff;">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light p-0">
+                <div class="logo flex-shrink-0 ml-15 mr-6">
+                    <a href="/">
+                        <img width="80px" src="{% static 'main/images/homepage/leftlogo.png' %}" class="img-fluid"
+                            alt="egovt">
+                    </a>
+                </div>
+                <div
+                    class="hdNavWrap flex-grow-1 d-flex align-items-center justify-content-end justify-content-lg-start">
+                    <div class="collapse navbar-collapse pageMainNavCollapse mt-2 mt-md-0" id="pageMainNavCollapse">
+                        <ul class="navbar-nav mainNavigation">
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link" href=" /" role="button" aria-haspopup="true" aria-expanded="false"
+                                    style="color: #3446CD;">Home</a>
+                            </li>
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link" href="/about_us" role="button" aria-haspopup="true"
+                                    aria-expanded="false" style="color: #3446CD;">About</a>
+                            </li>
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="color: #3446CD;">Education and
+                                    Training</a>
+                                <div class="dropdown-menu hdMainDropdown desktopDropOnHover">
+                                    <ul class="list-unstyled mb-0 hdDropdownList">
+                                        {% if user.is_authenticated and user.user_role.user_role == "Principal" %}
+                                        <li><a class="dropdown-item" href="/vtc_course_admission">VTC Admission
+                                                Portal</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/admission_registration">Add on Admission
+                                                Portal</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/exam_registration">Exam Registration</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/mark_registration">Mark Registration</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/add_on_programme">Add-on Programme
+                                                (Colleges)</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/application_for_affiliation">Application for
+                                                Affiliation</a>
+                                        </li>
+                                        {% elif user.is_authenticated and user.user_role.user_role == "Officer" %}
+                                        <li><a class="dropdown-item" href="/course">Course</a>
+                                        <li><a class="dropdown-item" href="/college">Colleges</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/vtc_course_admission">VTC Admission
+                                                Portal</a>
+                                        <li><a class="dropdown-item" href="/admission_registration">Add on Admission
+                                                Portal</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/exam_registration">Exam Registration</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/mark_registration">Mark Registration</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/add_on_programme">Add-on Programme
+                                                (Colleges)</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/application_for_affiliation">Application for
+                                                Affiliation</a>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="/pay_online_fees">Pay Online Fee</a></li>
+                                        {% elif user.is_authenticated and user.user_role.user_role == "Administrator" %}
+                                        <li><a class="dropdown-item" href="/course">Course</a>
+                                        <li><a class="dropdown-item" href="/college">Colleges</a>
+                                        <li><a class="dropdown-item" href="/vtc_course_admission">VTC Admission
+                                                Portal</a>
+                                        <li><a class="dropdown-item" href="/admission_registration">Add on Admission
+                                                Portal</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/exam_registration">Exam Registration</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/mark_registration">Mark List
+                                                Registration</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/add_on_programme">Add-on
+                                                Programme Affiliation
+                                                (Colleges)</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/application_for_affiliation">Application for
+                                                Affiliation(VTC)</a>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="/pay_online_fees">Pay Online Fee</a></li>
+                                        <li><a class="dropdown-item" href="/add_new_user">Add New User</a>
+                                        </li>
+                                        {% else %}
+
+                                        <li><a class="dropdown-item" href="/pay_online_fees">Pay Online Fee</a></li>
+
+                                        <!-- <li><a class="dropdown-item" href="/student_marks">Student Marks</a></li> -->
+                                        <!-- {% if user.user_role.user_role == "Officer" %}
+                                 <li><a class="dropdown-item" href="/mark_registration">Mark Registration</a>
+                                 
+                                 {% endif %} -->
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </li>
+                            {% if user.is_authenticated and user.user_role.user_role == "Officer" %}
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="color: #3446CD;">Official and
+                                    Administration</a>
+                                <div class="dropdown-menu hdMainDropdown desktopDropOnHover">
+                                    <ul class="list-unstyled mb-0 hdDropdownList">
+                                        <!-- <li><a class="dropdown-item" href="/e_finance_and_accounts">E-Finance and
+                                 Accounts</a>
+                                 </li> -->
+                                        <li><a class="dropdown-item" href="/e_office_accounts">E-Office Accounts</a>
+                                        </li>
+                                        <!-- <li><a class="dropdown-item" href="/e_office_student_register">E-Office Students
+                                 Register</a>
+                                 </li> -->
+                                        <!-- <li><a class="dropdown-item" href="/e_office_email">E-Officer Email</a></li> -->
+                                        <li><a class="dropdown-item" href="/e_office_queue_files">E-Office Queue
+                                                Files</a>
+                                        </li>
+                                        <!-- <li><a class="dropdown-item" href="/e_office_files">E-Office Files</a></li> -->
+                                        <li><a class="dropdown-item" href="/e_employee_records">E-Employee Records</a>
+                                        </li>
+                                        <!-- <li><a class="dropdown-item" href="/employee_service_book">Employee Service
+                                 Book</a>
+                                 </li> -->
+                                        <li><a class="dropdown-item" href="/e_office_file_sanction">E Office File
+                                                Sanction</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/e_employee_daily_work_statement">E-Employee
+                                                Daily
+                                                Work Statement</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/e_employee_live_and_leave_status">E-Employee
+                                                Live
+                                                Status</a>
+                                        </li>
+                                        <!-- <li><a class="dropdown-item" href="/e_adminstations">E-Administration</a></li> -->
+                                        <li><a class="dropdown-item"
+                                                href="/e_student_certificate_verification">E-Students Certificate
+                                                Verification</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/staff_work_alloted">Staff Work Allotment</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            {% elif user.is_authenticated and user.user_role.user_role == "Administrator" %}
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link dropdown-toggle dropIcn" href="javascript:void(0);" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="color: #3446CD;">Official and
+                                    Administration</a>
+                                <div class="dropdown-menu hdMainDropdown desktopDropOnHover">
+                                    <ul class="list-unstyled mb-0 hdDropdownList">
+
+                                        <li><a class="dropdown-item" href="/e_office_accounts">E-Office Accounts</a>
+                                        </li>
+                                        <!-- <li><a class="dropdown-item" href="/e_office_student_register">E-Office Students
+                                 Register</a>
+                                 </li> -->
+                                        <!-- <li><a class="dropdown-item" href="/e_office_email">E-Officer Email</a></li> -->
+                                        <li><a class="dropdown-item" href="/e_office_queue_files">E-Office Queue
+                                                Files</a>
+                                        </li>
+                                        <!-- <li><a class="dropdown-item" href="/e_office_files">E-Office Files</a></li> -->
+                                        <li><a class="dropdown-item" href="/e_employee_records">E-Employee Records</a>
+                                        </li>
+                                        <!-- <li><a class="dropdown-item" href="/employee_service_book">Employee Service
+                                 Book</a>
+                                 </li> -->
+                                        <li><a class="dropdown-item" href="/e_office_file_sanction">E Office File
+                                                Sanction</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/e_employee_daily_work_statement">E-Employee
+                                                Daily
+                                                Work Statement</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/e_employee_live_and_leave_status">E-Employee
+                                                Live
+                                                Status</a>
+                                        </li>
+                                        <!-- <li><a class="dropdown-item" href="/e_adminstations">E-Administration</a></li> -->
+                                        <li><a class="dropdown-item"
+                                                href="/e_student_certificate_verification">E-Students Certificate
+                                                Verification</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/staff_work_alloted">Staff Work Allotment</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            {% endif %}
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link" href="/news" role="button" aria-haspopup="true"
+                                    aria-expanded="false" style="color: #3446CD;">News</a>
+                            </li>
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link" href="/gallery" role="button" aria-haspopup="true"
+                                    aria-expanded="false" style="color: #3446CD;">Gallery</a>
+                            </li>
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link" href="/sector" role="button" aria-haspopup="true"
+                                    aria-expanded="false" style="color: #3446CD;">Sectors</a>
+                            </li>
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link" href="/contact_us" role="button" aria-haspopup="true"
+                                    aria-expanded="false" style="color: #3446CD;">Contact</a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link" href="/user_logout" role="button" aria-haspopup="true"
+                                    aria-expanded="false" style="color: #3446CD;">Logout</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item dropdown ddohOpener">
+                                <a class="nav-link" href="/dologin" role="button" aria-haspopup="true"
+                                    aria-expanded="false" style="color: #3446CD;">Login</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="logo flex-shrink-0 ml-15 mr-14">
+                        <!--<div class="logo flex-shrink-0 ml-3 mr-1 mr-xl-8 mr-xlwd-16">c-->
+                        <a href="/">
+                            <img width="80px" src="{% static 'main/images/homepage/rightlogo.png' %}" class="img-fluid"
+                                alt="egovt">
+                        </a>
+                    </div>
+                </div>
+                <div class="hdRighterWrap d-flex align-items-center justify-content-end">
+                    <button class="navbar-toggler pgNavOpener ml-1 bdrWidthAlter position-relative" type="button"
+                        data-toggle="collapse" data-target="#pageMainNavCollapse" aria-controls="pageMainNavCollapse"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+               ...
+           </div>
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary">Save changes</button>
+           </div>
+       </div>
+   </div>
+   </div> -->

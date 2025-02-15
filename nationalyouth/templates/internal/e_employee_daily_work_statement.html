@@ -1,0 +1,622 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- E-Employee Daily Work Statement Page ----------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %}
+{% block main_content %}
+{% load static %}
+<div class="phStickyWrap">
+   {% include 'Main/header.html' %}
+</div>
+<body>
+   <div class="d-lg-flex half">
+   <div class="container mb-16">
+      <div class="row align-items-center justify-content-center">
+         <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+            <center>
+               <h3 id="e_employee_daily_work_statement">Employee Daily Work Statement</h3>
+               <div style="display: flex; flex-direction: column; align-items: center;">
+                  <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                  </div>
+                  <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                  </div>
+               </div>
+            </center>
+            <!-- <center>
+               <p class="mb-4">Error Message Comes Here</p>
+               </center> -->
+            <div class="text-center alert alert-danger" id="erorr" role="alert" style="display:none;">
+            </div>
+            <form style="margin-top: 100px;" action="#" method="post">
+               {% csrf_token %}
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group first">
+                        <label>Employee Name <span class="text-danger">*</span></label>
+                        <input id="employee_name" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group first">
+                        <label>Work Start Time <span class="text-danger">*</span></label>
+                        <input id="work_start_time" type="time" class="form-control">
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group first">
+                        <label>Employee Code <span class="text-danger">*</span></label>
+                        <input id="employee_code" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group first">
+                        <label>Work End Time <span class="text-danger">*</span></label>
+                        <input id="work_end_time" type="time" class="form-control">
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No. <span class="text-danger">*</span></label>
+                        <input id="serial_number_1" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No. <span class="text-danger">*</span></label>
+                        <input id="file_number_1" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name <span class="text-danger">*</span></label>
+                        <input id="work_name_1" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status <span class="text-danger">*</span></label>
+                        <select id="work_status_1" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No.</label>
+                        <input id="serial_number_2" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No.</label>
+                        <input id="file_number_2" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name</label>
+                        <input id="work_name_2" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status</label>
+                        <select id="work_status_2" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No.</label>
+                        <input id="serial_number_3" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No.</label>
+                        <input id="file_number_3" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name</label>
+                        <input id="work_name_3" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status</label>
+                        <select id="work_status_3" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No.</label>
+                        <input id="serial_number_4" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No.</label>
+                        <input id="file_number_4" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name</label>
+                        <input id="work_name_4" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status</label>
+                        <select id="work_status_4" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No.</label>
+                        <input id="serial_number_5" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No.</label>
+                        <input id="file_number_5" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name</label>
+                        <input id="work_name_5" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status</label>
+                        <select id="work_status_5" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No.</label>
+                        <input id="serial_number_6" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No.</label>
+                        <input id="file_number_6" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name</label>
+                        <input id="work_name_6" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status</label>
+                        <select id="work_status_6" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No.</label>
+                        <input id="serial_number_7" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No.</label>
+                        <input id="file_number_7" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name</label>
+                        <input id="work_name_7" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status</label>
+                        <select id="work_status_7" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No.</label>
+                        <input id="serial_number_8" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No.</label>
+                        <input id="file_number_8" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name</label>
+                        <input id="work_name_8" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status</label>
+                        <select id="work_status_8" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No.</label>
+                        <input id="serial_number_9" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No.</label>
+                        <input id="file_number_9" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name</label>
+                        <input id="work_name_9" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status</label>
+                        <select id="work_status_9" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Sr. No.</label>
+                        <input id="serial_number_10" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>File No.</label>
+                        <input id="file_number_10" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Name</label>
+                        <input id="work_name_10" type="text" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group first">
+                        <label>Work Status</label>
+                        <select id="work_status_10" class="form-control">
+                           <option value="" selected>Select</option>
+                           {% for st in all_work_status %}
+                           <option value="{{st.id}}">{{st.work_status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group first">
+                        <label>Date <span class="text-danger">*</span></label>
+                        <input type="date" id="datepicker" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group first">
+                        <label>Charge Officer Name <span class="text-danger">*</span></label>
+                        <input id="charge_officer_name" type="text" class="form-control">
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group first">
+                        <label>Approved/Not Approved <span class="text-danger">*</span></label>
+                        <select id="status_1" class="form-control">
+                           <option selected>Select</option>
+                           {% for st in all_status %}
+                           <option value="{{st.id}}">{{st.status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group first">
+                        <label>Chief Executive Officer Name <span class="text-danger">*</span></label>
+                        <input id="chief_executive_officer_name" type="text" class="form-control">
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group first">
+                        <label>Approved/Not Approved <span class="text-danger">*</span></label>
+                        <select id="status_2" class="form-control">
+                           <option selected>Select</option>
+                           {% for st in all_status %}
+                           <option value="{{st.id}}">{{st.status}}</option>
+                           {% endfor %}
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <input onclick="fm_send()" type="button" value="Submit Form" class="btn px-5 btn-primary"
+                  style="background-color: #3446CD;" />
+            </form>
+         </div>
+      </div>
+   </div>
+   <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+   <script src="{% static 'forms/js/popper.min.js' %}"></script>
+   <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'forms/js/main.js' %}"></script>
+
+   <script>
+      function fm_send() {
+         let employee_name = document.getElementById("employee_name").value;
+         console.log(employee_name)
+         let work_start_time = document.getElementById("work_start_time").value;
+         let employee_code = document.getElementById("employee_code").value;
+         let work_end_time = document.getElementById("work_end_time").value;
+         let serial_number_1 = document.getElementById("serial_number_1").value;
+         let file_number_1 = document.getElementById("file_number_1").value;
+         let work_name_1 = document.getElementById("work_name_1").value;
+         let work_status_1 = document.getElementById("work_status_1").value;
+         let serial_number_2 = document.getElementById("serial_number_2").value;
+         let file_number_2 = document.getElementById("file_number_2").value;
+         let work_name_2 = document.getElementById("work_name_2").value;
+         let work_status_2 = document.getElementById("work_status_2").value;
+         let serial_number_3 = document.getElementById("serial_number_3").value;
+         let file_number_3 = document.getElementById("file_number_3").value;
+         let work_name_3 = document.getElementById("work_name_3").value;
+         let work_status_3 = document.getElementById("work_status_3").value;
+         let serial_number_4 = document.getElementById("serial_number_4").value;
+         let file_number_4 = document.getElementById("file_number_4").value;
+         let work_name_4 = document.getElementById("work_name_4").value;
+         let work_status_4 = document.getElementById("work_status_4").value;
+         let serial_number_5 = document.getElementById("serial_number_5").value;
+         let file_number_5 = document.getElementById("file_number_5").value;
+         let work_name_5 = document.getElementById("work_name_5").value;
+         let work_status_5 = document.getElementById("work_status_5").value;
+         let serial_number_6 = document.getElementById("serial_number_6").value;
+         let file_number_6 = document.getElementById("file_number_6").value;
+         let work_name_6 = document.getElementById("work_name_6").value;
+         let work_status_6 = document.getElementById("work_status_6").value;
+         let serial_number_7 = document.getElementById("serial_number_7").value;
+         let file_number_7 = document.getElementById("file_number_7").value;
+         let work_name_7 = document.getElementById("work_name_7").value;
+         let work_status_7 = document.getElementById("work_status_7").value;
+         let serial_number_8 = document.getElementById("serial_number_8").value;
+         let file_number_8 = document.getElementById("file_number_8").value;
+         let work_name_8 = document.getElementById("work_name_8").value;
+         let work_status_8 = document.getElementById("work_status_8").value;
+         let serial_number_9 = document.getElementById("serial_number_9").value;
+         let file_number_9 = document.getElementById("file_number_9").value;
+         let work_name_9 = document.getElementById("work_name_9").value;
+         let work_status_9 = document.getElementById("work_status_9").value;
+         let serial_number_10 = document.getElementById("serial_number_10").value;
+         let file_number_10 = document.getElementById("file_number_10").value;
+         let work_name_10 = document.getElementById("work_name_10").value;
+         let work_status_10 = document.getElementById("work_status_10").value;
+         let date = document.getElementById("datepicker").value;
+         let charge_officer_name = document.getElementById("charge_officer_name").value;
+         let status_1 = document.getElementById("status_1").value;
+         let chief_executive_officer_name = document.getElementById("chief_executive_officer_name").value;
+         let status_2 = document.getElementById("status_2").value;
+         let er=document.getElementById("erorr")
+    
+          
+          if (employee_name === "") {
+            er.innerHTML="Enter Employee Name"
+            window.location.href="#e_employee_daily_work_statement"
+            er.style.display="block"
+          } else if (work_start_time === "") {
+              er.innerHTML="Select Work start time"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          }  else if (employee_code === "") {
+              er.innerHTML="Enter Employee code"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else if (work_end_time === "") {
+            er.innerHTML="Select Work End Time"
+            window.location.href="#e_employee_daily_work_statement"
+            er.style.display="block"
+          }else if (serial_number_1 === "") {
+              er.innerHTML="Enter Serial Number"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else if (file_number_1 === "") {
+              er.innerHTML="Enter File Number"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else if (work_name_1 === "") {
+              er.innerHTML="Enter Wok Name"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else if (work_status_1 === "") {
+              er.innerHTML="Select Work Status"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else if (date === "") {
+              er.innerHTML="Select Date"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else if (charge_officer_name === "") {
+              er.innerHTML="Enter Officer Incharge Name"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else if (status_1 === "") {
+              er.innerHTML="Select Status 1"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else if (chief_executive_officer_name === "") {
+              er.innerHTML="Enter Chief Executive Officer Name"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else if (status_2 === "") {
+              er.innerHTML="Please Select Status 2"
+              window.location.href="#e_employee_daily_work_statement"
+              er.style.display="block"
+          } else {
+              $.ajax({
+                  type: "post",
+                  url: "/e_employee_daily_work_statement",
+                  data: {
+                     employee_name:employee_name,
+                     work_start_time:work_start_time,
+                     employee_code:employee_code,
+                     work_end_time:work_end_time,
+                     serial_number_1:serial_number_1,
+                     file_number_1:file_number_1,
+                     work_name_1:work_name_1,
+                     work_status_1:work_status_1,
+                     serial_number_2:serial_number_2,
+                     file_number_2:file_number_2,
+                     work_name_2:work_name_2,
+                     work_status_2:work_status_2,
+                     serial_number_3:serial_number_3,
+                     file_number_3:file_number_3,
+                     work_name_3:work_name_3,
+                     work_status_3:work_status_3,
+                     serial_number_4:serial_number_4,
+                     file_number_4:file_number_4,
+                     work_name_4:work_name_4,
+                     work_status_4:work_status_4,
+                     serial_number_5:serial_number_5,
+                     file_number_5:file_number_5,
+                     work_name_5:work_name_5,
+                     work_status_5:work_status_5,
+                     serial_number_6:serial_number_6,
+                     file_number_6:file_number_6,
+                     work_name_6:work_name_6,
+                     work_status_6:work_status_6,
+                     serial_number_7:serial_number_7,
+                     file_number_7:file_number_7,
+                     work_name_7:work_name_7,
+                     work_status_7:work_status_7,
+                     serial_number_8:serial_number_8,
+                     file_number_8:file_number_8,
+                     work_name_8:work_name_8,
+                     work_status_8:work_status_8,
+                     serial_number_9:serial_number_9,
+                     file_number_9:file_number_9,
+                     work_name_9:work_name_9,
+                     work_status_9:work_status_9,
+                     serial_number_10:serial_number_10,
+                     file_number_10:file_number_10,
+                     work_name_10:work_name_10,
+                     work_status_10:work_status_10,
+                     date:date,
+                     charge_officer_name:charge_officer_name,
+                     status_1:status_1,
+                     chief_executive_officer_name:chief_executive_officer_name,
+                     status_2:status_2,
+                     csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+                  },
+                  success: function (response) {
+                      if (response === "Save") {
+                          er.setAttribute("class","text-center alert alert-success");
+                          er.style.display="block"
+                          er.innerHTML="Form submission Successfully"
+                          window.location.href="#e_employee_daily_work_statement"
+
+                          setTimeout(()=>{
+                            window.location.href="/e_employee_daily_work_statement"
+
+                          },4000)
+                          
+                      } else {
+                          alert("Ooops, something went wrong");
+                      }
+                  },
+              });
+          }
+      }
+      
+  </script>
+   <script>
+      $(function(){
+   $("#datepicker").datepicker({
+       dateFormat: "yy-mm-dd"
+   });
+});
+</script>
+</body>
+{% endblock %}

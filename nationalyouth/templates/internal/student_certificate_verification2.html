@@ -1,0 +1,239 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Student Certificate Verification Page ------------------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %} {% block main_content %} {% load static %}
+<div class="phStickyWrap">
+   {% include 'Main/header.html' %}
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</div>
+<body>
+   <div class="d-lg-flex half">
+      <div class="container mb-16">
+         <div class="row align-items-center justify-content-center">
+            <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+               <center>
+                  <h3 id="mark_registration">Student Certificate Verification</h3>
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                     <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                     </div>
+                     <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                     </div>
+                  </div>
+               </center>
+               <!-- <center>
+                  <p class="mb-4">Error Message Comes Here</p>
+                  </center> -->
+               <center>
+                  <h5 style="color: red;">{{search_student_data_error}}</h5>
+               </center>
+               {% if register_number_allready %}
+               <div class="text-center alert alert-danger" role="alert" id="afterclick">
+                  {{register_number_allready}}
+               </div>
+               {% endif %}
+               <div class="text-center alert alert-danger" id="error00" role="alert" style="display:none;"></div>
+               <form>
+                  {% csrf_token %}
+                  <div class="row">
+                     <div class="col-md-8">
+                        <div class="form-group first">
+                           <label for="fname">Registration Number <span class="text-danger">*</span></label>
+                           <input value="{{admissionsFormdata.registration_number}}" required
+                              id="registration_number" name="search_registration_number" type="number"
+                              class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-4 mt-5">
+                        <div class="form-group first">
+                           <input type="submit" value="Search" class="btn px-5 btn-primary"
+                              style="background-color: #3446CD;" />
+                        </div>
+                     </div>
+                    <div style="margin-top: 100px;" class="row">
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="lname">Student Name <span class="text-danger">*</span></label>
+                                <input readonly id="student_name" value="{{search_student_data.name_of_student}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="lname">Registration Number <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{search_student_data.registration_number}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="fname">Course Name <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{search_student_data.course_name}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="fname">District <span class="text-danger">*</span></label>
+                                <input readonly id="any_fees_concession" value="{{search_student_data.district}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="fname">Month & Year <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{admissionsFormdata.date}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="fname">College Name<span class="text-danger">*</span></label>
+                                <input readonly id="any_fees_concession" value="{{search_student_data.college_name}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="certificateImage">Certificate Image <span class="text-danger">*</span></label>
+                                <div id="certificateImage" class="image-box" style="background-image: url('{{exmd.certificate_image_url}}');"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="markListImage">Marklist Image <span class="text-danger">*</span></label>
+                                <div id="markListImage" class="image-box" style="background-image: url('{{exmd.mark_list_image_url}}');"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        .image-box {
+                            width: 80%;
+                            height: 100px;
+                            border: 1px solid #ccc;
+                            background-size: cover;
+                            background-position: center;
+                            margin-bottom: 15px;
+                        }
+                    </style>
+                    <h4>Exam Result Detail</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="certificateImage">Result Status <span class="text-danger">*</span></label>
+                                {% if admissionsFormdata.result == '1' %}
+                                <input readonly id="exam_attendance" value="Passed" type="text" class="form-control" />
+                                {% elif admissionsFormdata.result == '1' %}
+                                <input readonly id="exam_attendance" value="Passed" type="text" class="form-control" />
+                                {% else %}
+                                <input readonly id="exam_attendance" type="text" class="form-control" />
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="markListImage">Total Mark Obtained <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{admissionsFormdata.total_mark_obtained}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="certificateImage">Grade <span class="text-danger">*</span></label>
+                                <input id="exam_attendance" value="{{exmd.exam_attendance}}" type="text" class="form-control" />
+                            </div>
+                        </div> -->
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="markListImage">Total Mark <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{admissionsFormdata.total_mark_obtained}}/{{admissionsFormdata.total_mark_1}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="certificateImage">Mark Enter Clerk Name <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{admissionsFormdata.mark_enter_clerk_name}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="markListImage">Status <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{admissionsFormdata.mark_enter_clerk}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="certificateImage">Result Checking Officer Name <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{admissionsFormdata.mark_check_clerk_name}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="markListImage">Status <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{admissionsFormdata.mark_check_clerk}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="certificateImage">Final Verified Officer Name <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{admissionsFormdata.final_mark_verified_officer_name}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="markListImage">Status <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{exmd.exam_attendance}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group first">
+                                <label for="certificateImage">Officer Register Book Number <span class="text-danger">*</span></label>
+                                <input readonly id="exam_attendance" value="{{admissionsFormdata.result_enter_register_book_number}}" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                  </div>
+                  <!-- Button trigger modal -->
+                  <script>
+                     setTimeout(() => {
+                         if ("{{search_student_data.name_of_student}}") {
+                             $('#staticBackdrop').modal('show');
+                     
+                         }
+                     }, 1000)
+                     function closebtnfun() {
+                         $('#staticBackdrop').modal('hide');
+                     }
+                     
+                  </script>
+               </form>
+            </div>
+         </div>
+      </div>
+      <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'forms/js/popper.min.js' %}"></script>
+      <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'forms/js/main.js' %}"></script>
+      <script>
+         $(function () {
+             $("#datepicker").datepicker({
+                 dateFormat: "yy-mm-dd"
+             });
+         });
+      </script>
+      {% endblock %}
+   </div>
+</body>

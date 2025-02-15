@@ -1,0 +1,964 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------------------- Homepage --------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %}
+{% block main_content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/css/image_slider.css' %}">
+<script src="{% static 'main/js/slide_show.js' %}"></script>
+<div id="pageWrapper">
+    <div class="phStickyWrap">
+        {% include 'Main/header.html' %}
+    </div>
+    <main>
+
+
+
+
+        <div class="contactSectionWrap pt-7 pb-2 pt-md-10 pb-md-1 pt-lg-16 pb-lg-10 pt-xl-21 pb-xl-16"
+            style="background-color: #3446CD;">
+
+
+
+
+            <style>
+                .scrolling-text-container {
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+
+                .scrolling-text {
+                    display: inline-block;
+                    animation: scrollLeft 25s linear infinite;
+                    font-weight: bold;
+                }
+
+                @keyframes scrollLeft {
+                    0% {
+                        transform: translateX(100%);
+                    }
+
+                    100% {
+                        transform: translateX(-100%);
+                    }
+                }
+            </style>
+
+            <div class="scrolling-text-container">
+                <div class="scrolling-text" style="color: #FFFF13; margin-bottom: 60px;">
+                    ALERT : Certificate verification page is currently work in progress. Please contact office email for
+                    more
+                    information regarding certificate and marklist :youthskilltrainingcooperatives@gmail.com
+                    //regionaldirector@nypyest.in
+                </div>
+            </div>
+
+            <div class="scrolling-text-container">
+                <div class="scrolling-text" style="color: white; margin-bottom: 60px;">
+                    Affiliation and Accreditation given by MSME Technology Development Center and National Skill
+                    Development Corporation (NSDC TP ID :144430) Government Of India Project )
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <div style="display: flex; justify-content: center; align-items: center;">
+
+                <div style="flex: 0 0 auto; width: 240px; height: 240px; text-align: center;">
+                    <img src="{% static 'main/images/homepage/sizeimage.jpeg' %}" alt="Left Image">
+                    <img src="{% static 'main/images/homepage/logo3.jpg' %}" alt="Right Image"
+                        style="padding-top: 10px;">
+                </div>
+
+
+                <!--<div
+                    style="border: 2px solid white; flex: 2; padding: 30px; margin-left: 35px; margin-right: 35px; text-align: center; border-radius: 10px;">
+                    <h2 class="card-title text-center" style="color: rgb(255, 255, 255);">YOUTH EMPLOYABILITY SKILL
+                        TRAINING
+                    </h2>
+                    <h3 class="card-text" style="color: rgb(255, 255, 255);">NATIONAL YOUTH PROGRAMME
+                        PROJECT-MSCS Act
+                    </h3>
+                    <h5 class="card-title pt-3 pl-10 pr-10" style="color: rgb(255, 255, 255);">UNDER
+                        THE AEGIS MINISTRY
+                        OF
+                        CO-OPERATION
+
+                    </h5>
+                    <h5 class="card-title pt-3 pl-10 pr-10" style="color: rgb(255, 255, 255);">
+                        GOVERNMENT OF INDIA
+                    </h5>
+                </div> -->
+
+
+
+                <div
+                    style="border: 2px solid white; flex: 2; padding: 30px; margin-left: 35px; margin-right: 35px; text-align: center; border-radius: 10px; position: relative;">
+
+                    <!-- Left Logo -->
+                    <img src="{% static 'main/images/homepage/leftlogo.png' %}" alt="Left Logo"
+                        style="position: absolute; top: 50%; transform: translateY(-50%); left: 10px; height: 70px;border-radius: 50%;">
+
+                    <!-- Right Logo -->
+                    <img src="{% static 'main/images/homepage/loginyp.jpg' %}" alt="Right Logo"
+                        style="position: absolute; top: 50%; transform: translateY(-50%); right: 10px; height: 70px;border-radius: 50%;">
+
+                    <h3 class="card-title text-center" style="color: rgb(255, 255, 255);">YOUTH EMPLOYABILITY SKILL
+                        TRAINING</h3>
+                    <h6 class="card-title text-center" style="color: rgb(255, 255, 255);">(An Aided Skill Training
+                        Institute Under the Government Project)
+                    </h6>
+                    <h3 class="card-text" style="color: rgb(255, 255, 255);">युवा रोजगार कौशल प्रशिक्षण
+                    </h3>
+                    <h6 class="card-title text-center" style="color: rgb(255, 255, 255);">सरकारी परियोजना के तहत एक
+                        सहायता प्राप्त कौशल प्रशिक्षण संस्थान
+
+                    </h6>
+
+                    <h3 class="card-text" style="color: rgb(255, 255, 255);">Approved Co-operation
+                    </h3>
+                    <h6 class="card-title text-center" style="color: rgb(255, 255, 255);">स्वीकृत सहयोग
+
+
+                    </h6>
+
+                    <h3 class="card-text" style="color: rgb(255, 255, 255);">MSME TECHNOLOGY DEVELOPMENT CENTRE
+                    </h3>
+                    <h6 class="card-title text-center" style="color: rgb(255, 255, 255);">
+                        Ministry of Micro, Small & Medium Enterprises, Government of India
+                    </h6>
+                    <h3 class="card-title pt-3 pl-10 pr-10" style="color: rgb(255, 255, 255);">एम एस एम ई
+                        प्रौद्योगिकी
+                        विकास केंद्र
+                    </h3>
+                    <h5 class="card-title pt-3 pl-10 pr-10" style="color: rgb(255, 255, 255);">सूक्ष्म, लघु और मध्यम
+                        उद्यम मंत्रालय, भारत सरकार
+
+                    </h5>
+                    <h5 class="card-title pt-3 pl-10 pr-10" style="color: rgb(255, 255, 255);">National Skill
+                        Development Corporation (NSDC TP ID :144430)<br>
+                        Government Of India Project
+
+                    </h5>
+                </div>
+
+
+
+
+
+                <div style="flex: 0 0 auto; width: 240px; height: 240px; text-align: center;">
+                    <img src="{% static 'main/images/homepage/sizeimage.jpeg' %}" alt="Right Image">
+                    <img src="{% static 'main/images/homepage/logo3.jpg' %}" alt="Right Image"
+                        style="padding-top: 10px;">
+
+
+                </div>
+
+            </div>
+
+
+            <div
+                style="border: 2px solid white; flex: 2; padding: 3px; margin-top:10px; margin-left: 400px; margin-right: 400px; text-align: center; border-radius: 15px;">
+
+                <h5 class="card-title pt-3 pl-10 pr-10" style="color: rgb(255, 255, 255);">
+                    Vocational Training For Unemployed Youth
+                </h5>
+            </div>
+
+
+
+
+
+
+            <div class="container">
+                <div class="row" style="background-color: #3446CD;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-------------------------------------------- Slider ----------------------------------------------------------------------->
+        <aside class="featuresAsideBlock position-relative text-white" style="background-color: #3446CD;!important">
+            <div class="fabBtNoteTextWrap text-center fontAlter fzMedium pt-2 pt-md-10 pb-6 pb-md-10 pb-lg-14">
+                <div class="container">
+                    <div class="text-center">
+                        <div class="card-body pt-15" style="background-color: #3446CD;">
+                            <div class="row">
+                                <div class="col-2 d-flex align-items-center justify-content-start">
+                                    <div style="position: relative;">
+                                        <img src="{% static 'main/images/homepage/logoimageone.jpeg' %}" alt="Left Logo"
+                                            class="logo" style="width: 300px; height: 80px; margin-top: -180px;">
+
+
+                                    </div>
+                                </div>
+                                <div class="col-8">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <div class="card-footer"
+                                        style=" background-color: #3446CD; margin-top: -120px; color: rgb(255, 255, 255);">
+                                        (Youth Skill Development Project, A Govt Grant-in-aid Autonomous Education and
+                                        Training
+                                        Institution)
+                                    </div>
+                                    <div class=" card-footer pb-15"
+                                        style="background-color: #3446CD; color: rgb(255, 255, 255);">
+                                        Run By : Society for Development of Technical and Vocational Education, New
+                                        Delhi Reg Under
+                                        Department of Labour of NCT)
+                                    </div>
+                                    <!--<div style="border: 2px solid white;  border-radius: 10px; padding-top: 25px;">
+                              <h3 class="card-title"
+                                  style="color: white; font-weight: bold; font-family: Arial, sans-serif;">
+                                  YOUTH EMPLOYABILITY SKILL TRAINING
+                              </h3>
+                              <h4 class="card-title" style="color: white;">NATIONAL YOUTH PROGRAMME PROJECT -
+                                  MSCS
+                                  ACT</h4>
+                              <p class="card-text" style="color: white;">Under the Aegis of Ministry of
+                                  Co-operation</p>
+                              <h1 class="card-title" style="color: yellow;">GOVERNMENT OF INDIA</h1>
+                              </div> -->
+                                    <!--<div style="display: flex; flex-direction: column; align-items: center;">
+                              <div
+                                  style="width: 100px; height: 3px; background-color: #ffffff; margin-top: 25px; margin-bottom: 10px;">
+                              </div>
+                              <div style="width: 30px; height: 3px; background-color: #ffffff;"></div>
+                              </div>
+                              <p class="card-text pt-3 pb-3 mt-10"
+                              style="border: 3px solid white; padding: 10px; color: white; border-radius: 10px;">
+                              Vocational Training For Unemployed Youth
+                              </p>-->
+                                </div>
+                                <div class="col-2 d-flex align-items-center justify-content-end">
+                                    <div style="position: relative;">
+                                        <img src="{% static 'main/images/homepage/logoimagetwo.jpeg' %}"
+                                            alt="Right Logo" class="logo"
+                                            style="width: 300px; height: 80px; margin-top: -180px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="card-footer pt-25" style="background-color: #3446CD; color: rgb(6, 255, 47);">
+                     (Youth Skill Development Project, A Govt Grant-in-aid Autonomous Education and Training
+                     Institution)
+                     </div>
+                     <div class=" card-footer pb-15" style="background-color: #3446CD; color: rgb(59, 255, 92);">
+                     Run By : Society for Development of Technical and Vocational Education, New
+                     Delhi Reg Under
+                     Department of Labour of NCT)
+                     </div> -->
+                    </div>
+                    <div class="d-lg-flex justify-content-center align-items-center mt-4">
+                        <!--<p class="mb-lg-0">Youth Skill Development Project, A Govt Grant-in-aid Autonomous Education
+                     and
+                     Training Institution
+                     Run By : Society for Development of Technical and Vocational Education, New Delhi Reg
+                     Under
+                     Department of Labour of NCT
+                     </p> -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------Skill Photos --------------------------------------------------------------->
+
+
+
+
+        <section
+            class="exploreServicesBlock position-relative pt-7 pt-md-12 pt-lg-16 pt-xl-20 pb-0 pb-md-4 pb-lg-8 pb-xl-12"
+            style="background-color: #3446CD;">
+            <div class="container">
+                <header class="headingHead mb-7 md-md-9 mb-lg-13">
+                    <div class="row align-items-end">
+                        <div class="col-12 col-sm-7 col-xl-5">
+                            <h2 class="mb-0">FREE SKILL TRAINING</h2>
+                            <h5 class="mb-0">FOR WOMEN AND YOUTH</h5>
+                            <div
+                                style="width: 100px; height: 3px; background-color: #3446CD; margin-top: 10px; margin-bottom: 10px;">
+                            </div>
+                            <div
+                                style="width: 30px; height: 3px; background-color: #3446CD; margin-top: 10px; margin-bottom: 10px;">
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="row image">
+                    <div id="carouselExample" class="carousel slide echSliderWrap overflow-hidden w-100"
+                        data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExample" data-slide-to="1"></li>
+                            <li data-target="#carouselExample" data-slide-to="2"></li>
+                            <!-- Add more indicators if there are more images -->
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="echColumn d-block w-100 bgCover position-relative"
+                                            style="background-image: url({% static 'main/images/homepage/5.png' %});">
+                                            <div
+                                                class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="echColumn d-block w-100 bgCover position-relative"
+                                            style="background-image: url({% static 'main/images/homepage/6.png' %});">
+                                            <div
+                                                class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="echColumn d-block w-100 bgCover position-relative"
+                                            style="background-image: url({% static 'main/images/homepage/7.png' %});">
+                                            <div
+                                                class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="echColumn d-block w-100 bgCover position-relative"
+                                            style="background-image: url({% static 'main/images/homepage/Eight.jpg' %});">
+                                            <div
+                                                class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="echColumn d-block w-100 bgCover position-relative"
+                                            style="background-image: url({% static 'main/images/homepage/Nine.jpg' %});">
+                                            <div
+                                                class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="echColumn d-block w-100 bgCover position-relative"
+                                            style="background-image: url({% static 'main/images/homepage/Ten.jpg' %});">
+                                            <div
+                                                class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more carousel items if there are more images -->
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <center>
+                <a class="btn btn-danger mb-5 mt-11" href="/gallery">View All</a>
+            </center>
+        </section>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            // Activate the carousel
+            $(document).ready(function () {
+                $('#carouselExample').carousel({
+                    interval: 3000 // Change slide interval (in milliseconds)
+                });
+            });
+        </script>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------- About Us --------------------------------------------------------------->
+        <article class="aboutMayorBlock pt-md-7 pt-xl-11 pb-7 pb-md-13 pb-lg-20 pb-xl-28" id="about_us">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div style="align-content: center;" class="col-12 col-md-6">
+                        <div class="imgTwoImageHolder position-relative mt-7 mt-md-0 mb-20 mb-md-0">
+                            <span class="img img1 position-relative d-block mt-20">
+                                <img src="{% static 'main/images/homepage/about.png' %}" class="img-fluid"
+                                    alt="image description">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h2 class="lh44 mb-1">About Us</h2>
+                        <div
+                            style="width: 100px; height: 3px; background-color: #3446CD; margin-top: 10px; margin-bottom: 10px;">
+                        </div>
+                        <div
+                            style="width: 30px; height: 3px; background-color: #3446CD; margin-top: 10px; margin-bottom: 40px;">
+                        </div>
+                        <p>National Youth Programme, Youth employability skill training (A Unit
+                            Under
+                            Government
+                            Autonomous Education Institution) Society For Development of Technical
+                            Vocational Education
+                            NEW DELHI.. registered under PTU AC 12A Government of India department
+                            of
+                            labour
+                            government
+                            of nct New Delhi National Youth program on ISO 9001 2008 certified
+                            institution
+                            was
+                            established to provide vocational skill development training with sole
+                            in of
+                            improving the
+                            the job aspirants with specific skill in private and government sector.
+                        </p>
+                        <h2 class="lh44 mb-1">Our Mission</h2>
+                        <div
+                            style="width: 100px; height: 3px; background-color: #3446CD; margin-top: 1px; margin-bottom: 10px;">
+                        </div>
+                        <div
+                            style="width: 30px; height: 3px; background-color: #3446CD; margin-top: 1px; margin-bottom: 40px;">
+                        </div>
+                        <p>We are National Youth program anything to prepare our students for a
+                            rapidly
+                            changing want by
+                            equipping them with critical thinking skills global perspective and
+                            respect
+                            for
+                            Core values
+                            of honesty integrity loyalty and compassion developing these skills is
+                            the
+                            cornerstone of
+                            the education we offer students will have success for today and be
+                            prepared
+                            for
+                            tomorrow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------- Count -------------------------------------------------------------->
+        <aside class="counterftAsideBlock position-relative text-center text-white d-flex"
+            style="background-color: #3446CD;">
+            <!-- Content goes here -->
+            <div class="alignHolder d-flex align-items-center w-100 position-relative">
+                <div class="align w-100 pt-9 pb-5">
+                    <div class="container">
+                        <ul class="list-unstyled cfbFeatList d-flex flex-wrap mb-0 justify-content-center">
+                            <li>
+                                <span class="icnWrap d-flex align-items-center justify-content-center w-100 mb-4">
+                                    <i class="fa fa-graduation-cap" style="color: #f7e581;"></i>
+                                    <span class="sr-only">icon</span>
+                                </span>
+                                <h3 class="fwSemiBold text-white textCount mb-3"><span>355</span>
+                                </h3>
+                                <h4 class="subtitle mb-0 font-weight-normal" style="color: yellow;">
+                                    Training Center
+                                </h4>
+                            </li>
+                            <li>
+                                <span class=" icnWrap d-flex align-items-center justify-content-center w-100 mb-4">
+                                    <i class="fa fa-people-group" style="color: #f7e581;"></i>
+                                    <span class="sr-only">icon</span>
+                                </span>
+                                <h3 class="fwSemiBold text-white textCount mb-3"><span>19,708</span>
+                                </h3>
+                                <h4 class="subtitle mb-0 font-weight-normal" style=" color: yellow;">
+                                    Enrolled
+                                    Candidates
+                                </h4>
+                            </li>
+                            <li>
+                                <span class="icnWrap d-flex align-items-center justify-content-center w-100 mb-4">
+                                    <i class="fa fa-certificate" style="color: #f7e581;"></i>
+                                    <span class="sr-only">icon</span>
+                                </span>
+                                <h3 class="fwSemiBold text-white textCount mb-3"><span>14,555</span>
+                                </h3>
+                                <h4 class="subtitle mb-0 font-weight-normal" style="color: yellow;">
+                                    Certified Candidates
+                                </h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <span class="cfbBgWrap bgCover position-absolute h-100 w-100 inaccessible"
+                style="background-image: url(images/bg01.png' %});"></span>
+        </aside>
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------- Updates ------------------------------------------------------------>
+        <header class="headingHead text-center mb-12 mt-16">
+            <h2 class="fwSemiBold">LATEST UPDATES</h2>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                </div>
+                <div style="width: 30px; height: 3px; background-color: #3446CD;"></div>
+            </div>
+        </header>
+        <div class="pt-7 pb-6 pt-lg-11 pb-lg-9 pt-xl-14 pb-xl-12">
+            {% for nw in get_all_news %}
+            <article class="ueEveColumn__list position-relative px-4 py-3 px-lg-8 py-lg-6">
+                <div class="d-lg-flex align-items-md-center">
+                    <time datetime="2011-01-12"
+                        class="uecTime text-black fontAlter text-uppercase flex-shrink-0 mr-4 mr-lg-6 d-block mb-2 mb-lg-0">
+                        <span style="font-size: 18px;" class="textLarge">{{nw.news_date}}
+                    </time>
+                    <div class="d-md-flex align-items-md-center flex-grow-1">
+                        <div class="descrWrap flex-grow-1">
+                            <strong class="tagTitle d-block fwSemiBold mb-2" style="color: black;">{{nw.news_description}}
+                            </strong>
+                        </div>
+                        <a href="javascript:void()"
+                            class="btn btnCustomLightOutline bdrWidthAlter btn-sm text-capitalize position-relative border-0 p-0 flex-shrink-0 ml-md-4"
+                            data-hover="More Details">
+                            <span class="d-block btnText">More Details</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center pt-2">
+                <li class="page-item">
+                    <a class="page-link" href="#">See All Updates <i class="fas fa-chevron-right icn"><span
+                                class="sr-only">icon</span></i></a>
+                </li>
+            </ul>
+        </nav>
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!---------------------------------------------------- Sectors ------------------------------------------------------------->
+        <section class="exploreHeightsBlock pt-4 pb-6 pb-md-9 pt-lg-7 pb-lg-14 pt-xl-11 pb-xl-20" id="sector">
+            <div class="container">
+                <header class="headingHead text-center mb-12">
+                    <h2 class="fwSemiBold">OUR SECTORS</h2>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                        </div>
+                        <div style="width: 30px; height: 3px; background-color: #3446CD;"></div>
+                    </div>
+                </header>
+            </div>
+            <div class="row">
+                <div class="echSliderWrap overflow-hidden w-100">
+                    <div class="echSlider mx-auto w-100">
+                        <div>
+                            <div class="col-12">
+                                <div class="echColumn d-block w-100 bgCover position-relative"
+                                    style="background-image: url({% static 'main/images/homepage/sectors/1.png' %});">
+                                    <div
+                                        class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                        <h3 class="mb-0 text-white">
+                                            <span class="d-block">Information Technology</span>
+                                        </h3>
+                                        <a href="" class="d-inline-block"><i
+                                                class="rounded-circle fa fa-arrow-right d-flex align-items-center justify-content-center bg-white text-dark spanLinkGo"><span
+                                                    class="sr-only">icon</span></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-12">
+                                <div class="echColumn d-block w-100 bgCover position-relative"
+                                    style="background-image: url({% static 'main/images/homepage/sectors/2.png' %});">
+                                    <div
+                                        class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                        <h3 class="mb-0 text-white">
+                                            <span class="d-block">Beauty</span>
+                                        </h3>
+                                        <a href="" class="d-inline-block"><i
+                                                class="rounded-circle fa fa-arrow-right d-flex align-items-center justify-content-center bg-white text-dark spanLinkGo"><span
+                                                    class="sr-only">icon</span></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-12">
+                                <div class="echColumn d-block w-100 bgCover position-relative"
+                                    style="background-image: url({% static 'main/images/homepage/sectors/3.png' %});">
+                                    <div
+                                        class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                        <h3 class="mb-0 text-white">
+                                            <span class="d-block">Retail</span>
+                                        </h3>
+                                        <a href="" class="d-inline-block"><i
+                                                class="rounded-circle fa fa-arrow-right d-flex align-items-center justify-content-center bg-white text-dark spanLinkGo"><span
+                                                    class="sr-only">icon</span></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-12">
+                                <div class="echColumn d-block w-100 bgCover position-relative"
+                                    style="background-image: url({% static 'main/images/homepage/sectors/4.png' %});">
+                                    <div
+                                        class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                        <h3 class="mb-0 text-white">
+                                            <span class="d-block">Health Care</span>
+                                        </h3>
+                                        <a href="" class="d-inline-block"><i
+                                                class="rounded-circle fa fa-arrow-right d-flex align-items-center justify-content-center bg-white text-dark spanLinkGo"><span
+                                                    class="sr-only">icon</span></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-12">
+                                <div class="echColumn d-block w-100 bgCover position-relative"
+                                    style="background-image: url({% static 'main/images/homepage/sectors/5.png' %});">
+                                    <div
+                                        class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                        <h3 class="mb-0 text-white">
+                                            <span class="d-block">Electronics</span>
+                                        </h3>
+                                        <a href="" class="d-inline-block"><i
+                                                class="rounded-circle fa fa-arrow-right d-flex align-items-center justify-content-center bg-white text-dark spanLinkGo"><span
+                                                    class="sr-only">icon</span></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-12">
+                                <div class="echColumn d-block w-100 bgCover position-relative"
+                                    style="background-image: url({% static 'main/images/homepage/sectors/6.png' %});">
+                                    <div
+                                        class="echcCaptionWrap position-absolute w-100 text-white px-3 py-2 px-sm-5 py-sm-4">
+                                        <h3 class="mb-0 text-white">
+                                            <span class="d-block">Electricals</span>
+                                        </h3>
+                                        <a href="" class="d-inline-block"><i
+                                                class="rounded-circle fa fa-arrow-right d-flex align-items-center justify-content-center bg-white text-dark spanLinkGo"><span
+                                                    class="sr-only">icon</span></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!---------------------------------------------------- Collaboration ------------------------------------------------------->
+        <section class="meetCouncilBlock custom-bg-blue position-relative pt-7 pt-md-9 pt-lg-14 pt-xl-20 pb-6">
+            <div class=" container">
+                <header class="headingHead text-center cdTitle mb-7 mb-md-13">
+                    <h2 class="fwSemiBold mb-4">OUR AFFILIATION & COLLABORATION</h2>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                        </div>
+                        <div style="width: 30px; height: 3px; background-color: #3446CD;"></div>
+                    </div>
+                </header>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                        <article class="mccColumn bg-white shadow mb-6 mx-auto mx-sm-0">
+                            <div class="imgHolder position-relative">
+                                <img src="{% static 'main/images/homepage/8.png' %}" class="img-fluid d-block w-100"
+                                    alt="image description">
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                        <article class="mccColumn bg-white shadow mb-6 mx-auto mx-sm-0">
+                            <div class="imgHolder position-relative">
+                                <img src="{% static 'main/images/homepage/9.png' %}" class="img-fluid d-block w-100"
+                                    alt="image description">
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                        <article class="mccColumn bg-white shadow mb-6 mx-auto mx-sm-0">
+                            <div class="imgHolder position-relative">
+                                <img src="{% static 'main/images/homepage/10.png' %}" class="img-fluid d-block w-100"
+                                    alt="image description">
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                        <article class="mccColumn bg-white shadow mb-6 mx-auto mx-sm-0">
+                            <div class="imgHolder position-relative">
+                                <img src="{% static 'main/images/homepage/11.png' %}" class="img-fluid d-block w-100"
+                                    alt="image description">
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                        <article class="mccColumn bg-white shadow mb-6 mx-auto mx-sm-0">
+                            <div class="imgHolder position-relative">
+                                <img src="{% static 'main/images/homepage/12.png' %}" class="img-fluid d-block w-100"
+                                    alt="image description">
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                        <article class="mccColumn bg-white shadow mb-6 mx-auto mx-sm-0">
+                            <div class="imgHolder position-relative">
+                                <img src="{% static 'main/images/homepage/13.png' %}" class="img-fluid d-block w-100"
+                                    alt="image description">
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                        <article class="mccColumn bg-white shadow mb-6 mx-auto mx-sm-0">
+                            <div class="imgHolder position-relative">
+                                <img src="{% static 'main/images/homepage/14.png' %}" class="img-fluid d-block w-100"
+                                    alt="image description">
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                        <article class="mccColumn bg-white shadow mb-6 mx-auto mx-sm-0">
+                            <div class="imgHolder position-relative">
+                                <img src="{% static 'main/images/homepage/15.png' %}" class="img-fluid d-block w-100"
+                                    alt="image description">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!---------------------------------------------------- Contact Us ---------------------------------------------------------->
+        <header class="headingHead text-center mb-12 mt-5" id="contact_us">
+            <h2 class="fwSemiBold">Contact</h2>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                </div>
+                <div style="width: 30px; height: 3px; background-color: #3446CD;"></div>
+            </div>
+        </header>
+        <div class="contactSectionWrap pt-7 pb-2 pt-md-10 pb-md-1 pt-lg-16 pb-lg-10 pt-xl-21 pb-xl-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-xl-6 d-flex align-items-stretch pl-8">
+                        <div class=" widget bg-white shadow contactFormWidget ml-xl-n5 mb-7 mb-md-5">
+                            <div class="pt-8 pb-10 px-4 px-md-6 px-xl-8">
+                                {% include 'Main/error_messages.html' %}
+                                <h2 class="fwSemiBold h3Medium mb-4">Leave your message</h2>
+                                <form action="/home_contact_us" class="commentForm" method="post">
+                                    {% csrf_token %}
+                                    <div class="row mx-n2">
+                                        <div class="col-12 col-sm-6 col-md-12 col-lg-6 px-2">
+                                            <div class="form-group">
+                                                <input value="{{value.full_name}}" required type="text"
+                                                    class="form-control d-block w-100" name="full_name"
+                                                    placeholder="Full Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-12 col-lg-6 px-2">
+                                            <div class="form-group">
+                                                <input value="{{value.email}}" required type="email"
+                                                    class="form-control d-block w-100" name="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-6 px-2">
+                                            <div class="form-group">
+                                                <input value="{{value.mobile_number}}" required type="text"
+                                                    class="form-control d-block w-100" name="mobile_number"
+                                                    placeholder="Mobile Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-6 px-2">
+                                            <div class="form-group">
+                                                <input value="{{value.subject}}" required type="text"
+                                                    class="form-control d-block w-100" name="subject"
+                                                    placeholder="Subject">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 px-2">
+                                            <div class="form-group">
+                                                <textarea name="message" required class="form-control w-100 d-block"
+                                                    placeholder="Write your message&hellip;"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit"
+                                        class="btn btnTheme d-flex font-weight-bold text-capitalize position-relative border-0 p-0 mt-2 btnWidthSmall"
+                                        data-hover="Send Message">
+                                        <span class="d-block btnText">Send Message</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-6 d-flex align-items-stretch mb-5">
+                        <!-- Card on the right side -->
+                        <div class="card text-center w-100">
+                            <div class="card-body pt-5" style="background-color: #3446CD;">
+                                <h2 class="card-title" style="color: rgb(255, 255, 255);">OFFICE OF
+                                    THE CHIEF EXECUTIVE
+                                    OFFICER
+                                </h2>
+                                <div style="display: flex; flex-direction: column; align-items: center;">
+                                    <div
+                                        style="width: 100px; height: 3px; background-color: #ffffff; margin-bottom: 10px;">
+                                    </div>
+                                    <div
+                                        style="width: 30px; height: 3px; background-color: #ffffff; margin-bottom: 25px;">
+                                    </div>
+                                </div>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">YOUTH
+                                    EMPLOYABILITY SKILL
+                                    TRAINING -
+                                    MSCS
+                                    Act
+                                </p>
+                                <h5 class="card-title" style="color: rgb(255, 255, 255);">NATIONAL
+                                    YOUTH PROGRAMME
+                                    PROJECT
+                                    REGIONAL
+                                    OFFICE
+                                </h5>
+                                <h5 class="card-title" style="color: rgb(255, 255, 255);">AUTONOMOUS
+                                    INSTITUITION
+                                </h5>
+                                <h5 class="card-title pt-3 pl-10 pr-10" style="color: yellow;">UNDER
+                                    THE AEGIS MINISTRY
+                                    OF
+                                    CO-OPERATION
+                                    GOVERNMENT OF INDIA
+                                </h5>
+                                <h3 class="card-title pt-2 pl-10 pr-10" style="color: yellow;">मुख्य
+                                    कार्यकारी अधिकारी
+                                    का कार्यालय
+                                </h3>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">युवा रोजगार
+                                    कौशल प्रशिक्षण (एम
+                                    एस सी एस अधिनियम)
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">राष्ट्रीय
+                                    युवा कार्यक्रम
+                                    परियोजना क्षेत्रीय कार्यालय (स्वायत्तशासी)
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">सहकारिता
+                                    मंत्रालय
+                                    के तहत भारत सरकार
+                                </p>
+                                <h5 class="card-title pl-15 pr-15" style="color: yellow;">PROJECT
+                                    OFFICE : YOUTH
+                                    EMPLOYABILITY
+                                    SKILL
+                                    TRAINING
+                                    CO-OPERATIVE EDUCATION SOCIETY
+                                </h5>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">परियोजना
+                                    कार्यालय : युवा रोजगार
+                                    कौशल प्रशिक्षण सहकारी शिक्षा समिति
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------->
+    </main>
+    <!-------------------------------------------- Footer ------------------------------------------------------------------------->
+    {% include 'Main/footer.html' %}
+    <!----------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------->
+</div>
+{% endblock %}

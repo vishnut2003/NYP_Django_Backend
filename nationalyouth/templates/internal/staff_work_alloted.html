@@ -1,0 +1,339 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Staff Work Alloted Page ------------------------------------>
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %} {% block main_content %} {% load static %}
+<div class="phStickyWrap">
+   {% include 'Main/header.html' %}
+</div>
+<body>
+   <div class="d-lg-flex half">
+      <div class="container">
+         <div class="row align-items-center justify-content-center">
+            <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15 pb-15">
+               <center>
+                  <h3 id="staff_work_alloted">STAFF WORK ALLOTMENT</h3>
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                     <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                     </div>
+                     <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 60px;">
+                     </div>
+                  </div>
+               </center>
+               <!-- <center>
+                  <p class="mb-4">Error Message Comes Here</p>
+                  </center> -->
+               <div class="text-center alert alert-danger" id="error00" role="alert" style="display:none;"></div>
+               <form action="#" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Work Assign Office</label>
+                           <select id="work_assign_office" class="form-control">
+                              <option value="" selected>Select</option>
+                              {% for office in all_work_assign_office %}
+                              <option value="{{office.id}}">{{office.work_assign_office}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Name of Employee</label>
+                           <input id="name_of_employee" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Work Starting Date</label>
+                           <input id="work_start_date" type="date" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Work Stating Time</label>
+                           <input id="work_start_time" type="time" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Work Name</label>
+                           <input id="work_name" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Upload Work</label>
+                           <input id="myFileInput" type="file" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Work Finishing Date</label>
+                           <input id="work_finishing_date" type="date" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Work Finishing Time</label>
+                           <input id="work_finishing_time" type="time" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Work Head Name</label>
+                           <input id="work_head_name" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Current Status</label>
+                           <select id="current_status" class="form-control">
+                              <option value="" selected>Select</option>
+                              {% for wk in all_work_status %}
+                              <option value="{{wk.id}}">{{wk.work_status}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <input onclick="staff_work_allotment()" type="button" value="Submit Form" class="btn px-5 btn-primary"
+                     style="background-color: #3446CD;" />
+               </form>
+            </div>
+
+
+
+            <!--
+            <div class="d-lg-flex">
+               <div class="container mb-16">
+                  <div class="row align-items-center justify-content-center">
+                     <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                        <center>
+                           <h3>Staff Work Allotment</h3>
+                           <div style="display: flex; flex-direction: column; align-items: center;">
+                              <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                              </div>
+                              <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                              </div>
+                           </div>
+                        </center>
+                        <section class="bg-light">
+                           <div class="table-responsive" id="no-more-tables">
+                              <table class="table bg-white">
+                                 <thead class="bg-dark text-light">
+                                    <tr>
+                                       <th>Work Assign Office</th>
+                                       <th>Name of Employee</th>
+                                       <th>Work Starting Date</th>
+                                       <th>Work Starting Time</th>
+                                       <th>Work Name</th>
+                                       <th>Upload Work</th>
+                                       <th>Work Finishing Date</th>
+                                       <th>Work Finishing Time</th>
+                                       <th>Work Head Name</th>
+                                       <th>Current Status</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>Regional Office</td>
+                                       <td>CHIEF EXECUTIVE OFFICER</td>
+                                       <td>20/04/2023</td>
+                                       <td>12 PM</td>
+                                       <td>സെക്യൂരിറ്റി ഡെപ്പോസിറ്റ് ഫണ്ട്</td>
+                                       <td></td>
+                                       <td>20/04/2023</td>
+                                       <td>5 PM</td>
+                                       <td>സെക്യൂരിറ്റി ഡിപ്പോസിറ്റ് ഫണ്ട് 200000 RS TRANSFER TO HEAD OFFICE</td>
+                                       <td>Work in Progress</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </section>
+                     </div>
+                  </div>
+               </div>
+            </div>-->
+            <!--
+            <div class="d-lg-flex">
+               <div class="container mb-16">
+                  <div class="row align-items-center justify-content-center">
+                     <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                        <center>
+                           <h3>Staff Work Uploads</h3>
+                           <div style="display: flex; flex-direction: column; align-items: center;">
+                              <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                              </div>
+                              <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                              </div>
+                           </div>
+                        </center>
+                        <section class="bg-light">
+                           <div class="table-responsive" id="no-more-tables">
+                              <table class="table bg-white">
+                                 <thead class="bg-dark text-light">
+                                    <tr>
+                                       <th>Name of Employee</th>
+                                       <th>Work Name</th>
+                                       <th>Work Starting Date</th>
+                                       <th>Work Stating Time</th>
+                                       <th>Upload Work</th>
+                                       <th>Current Status</th>
+                                       <th>Work Finishing Date</th>
+                                       <th>Work Finishing Time</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>No Records Found</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </section>
+                     </div>
+                  </div>
+               </div>
+            </div>-->
+         </div>
+      </div>
+      <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'forms/js/popper.min.js' %}"></script>
+      <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'forms/js/main.js' %}"></script>
+
+
+      <script>
+         function staff_work_allotment() {
+             let get_work_assign_office = document.getElementById("work_assign_office").value;
+             let get_name_of_employee = document.getElementById("name_of_employee").value;
+             let get_work_start_date = document.getElementById("work_start_date").value;
+             let get_work_start_time = document.getElementById("work_start_time").value;
+             let get_work_name = document.getElementById("work_name").value;
+             let get_myFileInput = document.getElementById("myFileInput").value;
+            //  var fileName = get_myFileInput.files[0].name;
+            //  console.log(fileName);
+            //  alert(fileName);
+             let get_work_finishing_date = document.getElementById("work_finishing_date").value;
+             let get_work_finishing_time = document.getElementById("work_finishing_time").value;
+             let get_work_head_name = document.getElementById("work_head_name").value;
+             let get_current_status = document.getElementById("current_status").value;
+             let er = document.querySelector("#error00");
+             
+             if (get_work_assign_office === "") {
+                 er.innerHTML = "Select Work Assign Office";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             } 
+             else if (get_name_of_employee === "") {
+                 er.innerHTML = "Enter Employee Name";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             } 
+             else if (get_work_start_date === "") {
+                 er.innerHTML = "Select Date";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             } 
+             else if (get_work_start_time === "") {
+                 er.innerHTML = "Select Time";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             } 
+             else if (get_work_name === "") {
+                 er.innerHTML = "Enter Work Name";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             } 
+             else if (get_myFileInput === "") {
+                 er.innerHTML = "Enter Upload Work";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             } 
+             else if (get_work_finishing_date === "") {
+                 er.innerHTML = "Select Finish Date";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             }
+             else if (get_work_finishing_time === "") {
+                 er.innerHTML = "Select Finish Time";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             } 
+             else if (get_work_head_name === "") {
+                 er.innerHTML = "Enter Work Head Name";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             }
+             else if (get_current_status === "") {
+                 er.innerHTML = "Select Status";
+                 er.style.display = "block";
+                 window.location.href = "#staff_work_alloted";
+             } else {
+                 $.ajax({
+                     type: "POST",
+                     url: "/staff_work_alloted",
+                     data: {
+                         send_work_assign_office: get_work_assign_office,
+                         send_name_of_employee: get_name_of_employee,
+                         send_work_start_date: get_work_start_date,
+                         send_work_start_time: get_work_start_time,
+                         send_work_name: get_work_name,
+                         send_myFileInput: get_myFileInput,
+                         send_work_finishing_date: get_work_finishing_date,
+                         send_work_finishing_time: get_work_finishing_time,
+                         send_work_head_name: get_work_head_name,
+                         send_current_status: get_current_status,
+                         csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+                     },
+                     success: function (response) {
+                         if (response === "Save") {
+                             er.setAttribute("class", "text-center alert alert-success");
+                             er.innerHTML = "Form submission successful";
+                             er.style.display = "block";
+                             window.location.href = "#staff_work_alloted";
+         
+                             setTimeout(() => {
+                                 window.location.href = "/staff_work_alloted";
+                             }, 4000);
+                         } else {
+                             alert("Oops, something went wrong");
+                         }
+                     },
+                     error: function (xhr, status, error) {
+                         alert("Error: " + error);
+                     }
+                 });
+             }
+         }
+         
+     </script>
+
+
+      <script>
+         $(function(){
+      $("#work_start_date").datepicker({
+          dateFormat: "yy-mm-dd"
+      });
+      $("#work_finishing_date").datepicker({
+          dateFormat: "yy-mm-dd"
+      });
+  });
+  </script>
+      {% endblock %}
+   </div>
+</body>

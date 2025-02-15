@@ -1,0 +1,123 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Add E Employee Records Page -------------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %} {% block main_content %} {% load static %}
+<div class="phStickyWrap">
+    {% include 'Main/header.html' %}
+</div>
+<!-- <style>
+    @media only screen and (max-width:800px) {
+        #no-more-tables tbody,
+        #no-more-tables tr,
+        #no-more-tables td {
+            display: block;
+        }
+        #no-more-tables thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        #no-more-tables td {
+            position: relative;
+            padding-left: 50%;
+            border: none;
+            border-bottom: 1px solid #eee;
+        }
+        #no-more-tables td:before {
+            content: attr(data-title);
+            position: absolute;
+            left: 6px;
+            font-weight: bold;
+        }
+        #no-more-tables tr {
+            border-bottom: 1px solid #ccc;
+        }
+    }
+</style> -->
+<body>
+    <div class="d-lg-flex">
+        <div class="container mb-16">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                    <center>
+                        <h3>FINANCE & ACCOUNTS</h3>
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                            </div>
+                            <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                            </div>
+                        </div>
+                    </center>
+                    <!-- <center>
+                  <p class="mb-4">Error Message Comes Here</p>
+                  </center> -->
+                  <section class="bg-light">
+                    <div class="table-responsive" id="no-more-tables">
+                        <table class="table bg-white">
+                            <thead class="bg-dark text-light">
+                                <tr>
+                                    <th>Sr. no</th>
+                                    <th>TYPE OF ACCOUNTS</th>
+                                    <th>VOUCHER NUMBER</th>
+                                    <th>PARTICULARS HEAD</th>
+                                    <!-- <th>PARTICULARS HEAD (OTHERS)</th> -->
+                                    <th>DATE</th>
+                                    <th>AMOUNT</th>
+                                    <!-- <th>TYPE OF INCOME</th>
+                                    <th>TYPE OF EXPENSE</th> -->
+                                    <th>BANK NAME</th>
+                                    <th>TRANSACTION ID NUMBER</th>
+                                    <th>AMOUNT (ONLINE PAYMENT DETAILS)</th>
+                                    <th>REMARKS</th>
+
+                                    <th>NAME</th>
+                                    <th>OFFICE / COLLAGE NAME</th>
+                                    <th>ADDRESS</th>
+                                    <th>AMOUNT</th>
+                                    <th>FILE REFERRAL NUMBER</th>
+                                    <th>OFFICE REGISTER NUMBER</th>
+                                    <th>PAN CARD / AADHAR NUMBER</th>
+                                    <th>OFFICER IN CHARGE (NAME)</th>
+                                    <th>OFFICER IN CHARGE (STATUS)</th>
+                                    <th>REMARKS (STAFF APPROVAL)</th>
+                                    <th>SECRETARY/CHIEF EXECUTIVE OFFICER (NAME)</th>
+                                    <th>SECRETARY/CHIEF EXECUTIVE OFFICER (STATUS)</th>
+                                    <th>REMARKS (OFFICER APPROVAL)</th>
+                                    <th>OFFICE REFERRAL NUMBER</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if all_e_finance_and_accounts %}
+                                {% for finance_and_accounts in all_e_finance_and_accounts %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{finance_and_accounts.type_of_account.type_of_account}}</td>
+                                    <td>{{finance_and_accounts.voucher_number}}</td>
+                                    <td>{{finance_and_accounts.particular_head}}</td>
+                                    <td>{{finance_and_accounts.date}}</td>
+                                    <td>{{finance_and_accounts.amount}}</td>
+                                    <td>{{finance_and_accounts.bank_name}}</td>
+                                </tr>
+                                {% endfor %}
+                                {% else %}
+                                <h4>No Records !!</h4>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                  </section>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'forms/js/popper.min.js' %}"></script>
+        <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'forms/js/main.js' %}"></script>
+        {% endblock %}
+    </div>
+</body>

@@ -1,0 +1,1649 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Application Registration Page ------------------------------>
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %} {% block main_content %} {% load static %}
+<div class="phStickyWrap">
+   {% include 'Main/header.html' %}
+</div>
+<body>
+   <div class="d-lg-flex half">
+      <div class="container">
+         <div class="row align-items-center justify-content-center">
+            <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15 pb-20">
+               <center>
+                  <h3 id="application_for_affiliation">APPLICATION FOR AFFILIATION</h3>
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                     <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                     </div>
+                     <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 60px;">
+                     </div>
+                  </div>
+               </center>
+               <!-- <center>
+                  <p class="mb-4">Error Message Comes Here</p>
+                  </center> -->
+               <div class="text-center alert alert-danger" id="erorr" role="alert" style="display:none;"></div>
+               <form action="#" method="post">
+                  {% csrf_token %}
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Name of the Institution <span class="text-danger">*</span></label>
+                           <input id="name_of_institution" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Phone/Mobile <span class="text-danger">*</span></label>
+                           <input id="mobile_number" type="number" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Status of the Institution</label>
+                           <select id="status_of_institution" class="form-control">
+                              <option value="">Select</option>
+                              
+                              {% for inst in all_institution_status %}
+                              <option value="{{inst.id}}">{{inst.institution_status}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Email Address <span class="text-danger">*</span></label>
+                           <input id="email" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Status of the Institution (Other) <span class="text-danger">*</span></label>
+                           <input id="status_of_institution_other" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Year of Establishment <span class="text-danger">*</span></label>
+                           <input id="year_of_establishment" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group first">
+                           <label>Address <span class="text-danger">*</span></label>
+                           <textarea id="address" type="text" class="form-control"></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Picode <span class="text-danger">*</span></label>
+                           <input id="pincode" type="number" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <center>
+                     <h4 class="mt-5 text-black">Information About Manager/Principal/Director of the Institution
+                     </h4>
+                     <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                        </div>
+                        <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 60px;">
+                        </div>
+                     </div>
+                  </center>
+                  <div class="row mt-5">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Name (Manager/Principal/Director) <span class="text-danger">*</span></label>
+                           <input id="name_mpd" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Education Qualification <span class="text-danger">*</span></label>
+                           <input id="education_qualification" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Date of Birth <span class="text-danger">*</span></label>
+                           <input id="date_of_birth" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Designation <span class="text-danger">*</span></label>
+                           <input id="designation" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Professional Experience <span class="text-danger">*</span></label>
+                           <input id="profession_experience" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group first">
+                           <label>Postal Address (Residence) <span class="text-danger">*</span></label>
+                           <textarea id="postal_address" type="text" class="form-control"></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <center>
+                     <h4 class="mt-5 text-black">Infrastructure Facility</h4>
+                  </center>
+                  <div class="row mt-5">
+                     <div class="col-md-3 mt-5">
+                        <div class="form-group first">
+                           <label>Staff Room</label>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Number of Rooms (Staff Room) <span class="text-danger">*</span></label>
+                           <input id="number_of_room_1" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Seating Capacity <span class="text-danger">*</span></label>
+                           <input id="seating_capacity_1" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Total Area (Sqft) <span class="text-danger">*</span></label>
+                           <input id="total_area_1" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row mt-5">
+                     <div class="col-md-3 mt-5">
+                        <div class="form-group first">
+                           <label>Class Room</label>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Number of Rooms (Class Room) <span class="text-danger">*</span></label>
+                           <input id="number_of_room_2" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Seating Capacity <span class="text-danger">*</span></label>
+                           <input id="seating_capacity_2" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Total Area (Sqft) <span class="text-danger">*</span></label>
+                           <input id="total_area_2" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row mt-5">
+                     <div class="col-md-3 mt-5">
+                        <div class="form-group first">
+                           <label>Laboratory</label>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Number of Rooms (Laboratory) <span class="text-danger">*</span></label>
+                           <input id="number_of_room_3" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Seating Capacity <span class="text-danger">*</span></label>
+                           <input id="seating_capacity_3" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Total Area (Sqft) <span class="text-danger">*</span></label>
+                           <input id="total_area_3" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row mt-5">
+                     <div class="col-md-3 mt-5">
+                        <div class="form-group first">
+                           <label>Reception</label>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Number of Rooms (Reception) <span class="text-danger">*</span></label>
+                           <input id="number_of_room_4" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Seating Capacity <span class="text-danger">*</span></label>
+                           <input id="seating_capacity_4" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Total Area (Sqft) <span class="text-danger">*</span></label>
+                           <input id="total_area_4" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row mt-5">
+                     <div class="col-md-3 mt-5">
+                        <div class="form-group first">
+                           <label>Toilets</label>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Number of Rooms (Toilets) <span class="text-danger">*</span></label>
+                           <input id="number_of_room_5" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Seating Capacity <span class="text-danger">*</span></label>
+                           <input id="seating_capacity_5" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Total Area (Sqft) <span class="text-danger">*</span></label>
+                           <input id="total_area_5" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row mt-5">
+                     <div class="col-md-3 mt-5">
+                        <div class="form-group first">
+                           <label>Any Others</label>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Number of Rooms (Other Rooms)</label>
+                           <input id="number_of_room_6" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Seating Capacity</label>
+                           <input id="seating_capacity_6" type="text" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Total Area (Sqft)</label>
+                           <input id="total_area_6" type="text" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+                  <center>
+                     <h4 class="mt-5 text-black">Details of Laboratory Facilities Available</h4>
+                     <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                        </div>
+                        <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 60px;">
+                        </div>
+                     </div>
+                  </center>
+                  <center>
+                     <h4 style="margin-top: 50px;" class="text-black">Computer Facilities <span class="text-danger">*</span></h4>
+                  </center>
+                  <div class="row mt-5">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="serial_number_1" type="text" class="form-control"
+                              placeholder="SL No. (Computer Facilities/Lab Facilities)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="type_of_computer_1" type="text" class="form-control" placeholder="Computer with Type">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="number_terminal_1" type="text" class="form-control" placeholder="No. of Terminals Available">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="year_of_purchase_1" type="text" class="form-control" placeholder="Year of Purchase">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="cost_1" type="text" class="form-control" placeholder="Cost">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="software_facility_1" type="text" class="form-control" placeholder="Software Facilities">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="other_facility_1" type="text" class="form-control" placeholder="Other Facilities">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" style="margin-top: 50px;">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="serial_number_2" type="text" class="form-control"
+                              placeholder="SL No. (Computer Facilities/Lab Facilities)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="type_of_computer_2" type="text" class="form-control" placeholder="Computer with Type">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="number_terminal_2" type="text" class="form-control" placeholder="No. of Terminals Available">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="year_of_purchase_2" type="text" class="form-control" placeholder="Year of Purchase">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="cost_2" type="text" class="form-control" placeholder="Cost">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="software_facility_2" type="text" class="form-control" placeholder="Software Facilities">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="other_facility_2" type="text" class="form-control" placeholder="Other Facilities">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" style="margin-top: 50px;">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="serial_number_3" type="text" class="form-control"
+                              placeholder="SL No. (Computer Facilities/Lab Facilities)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="type_of_computer_3" type="text" class="form-control" placeholder="Computer with Type">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="number_terminal_3" type="text" class="form-control" placeholder="No. of Terminals Available">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="year_of_purchase_3" type="text" class="form-control" placeholder="Year of Purchase">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="cost_3" type="text" class="form-control" placeholder="Cost">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="software_facility_3" type="text" class="form-control" placeholder="Software Facilities">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="other_facility_3" type="text" class="form-control" placeholder="Other Facilities">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" style="margin-top: 50px;">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="serial_number_4" type="text" class="form-control"
+                              placeholder="SL No. (Computer Facilities/Lab Facilities)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="type_of_computer_4" type="text" class="form-control" placeholder="Computer with Type">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="number_terminal_4" type="text" class="form-control" placeholder="No. of Terminals Available">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="year_of_purchase_4" type="text" class="form-control" placeholder="Year of Purchase">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="cost_4" type="text" class="form-control" placeholder="Cost">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="software_facility_4" type="text" class="form-control" placeholder="Software Facilities">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="other_facility_4" type="text" class="form-control" placeholder="Other Facilities">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" style="margin-top: 50px;">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="serial_number_5" type="text" class="form-control"
+                              placeholder="SL No. (Computer Facilities/Lab Facilities)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="type_of_computer_5" type="text" class="form-control" placeholder="Computer with Type">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="number_terminal_5" type="text" class="form-control" placeholder="No. of Terminals Available">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="year_of_purchase_5" type="text" class="form-control" placeholder="Year of Purchase">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="cost_5" type="text" class="form-control" placeholder="Cost">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="software_facility_5" type="text" class="form-control" placeholder="Software Facilities">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="other_facility_5" type="text" class="form-control" placeholder="Other Facilities">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" style="margin-top: 50px;">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="serial_number_6" type="text" class="form-control"
+                              placeholder="SL No. (Computer Facilities/Lab Facilities)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="type_of_computer_6" type="text" class="form-control" placeholder="Computer with Type">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="number_terminal_6" type="text" class="form-control" placeholder="No. of Terminals Available">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="year_of_purchase_6" type="text" class="form-control" placeholder="Year of Purchase">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="cost_6" type="text" class="form-control" placeholder="Cost">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="software_facility_6" type="text" class="form-control" placeholder="Software Facilities">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="other_facility_6" type="text" class="form-control" placeholder="Other Facilities">
+                        </div>
+                     </div>
+                  </div>
+                  <center>
+                     <h4 style="margin-top: 50px;" class="text-black">Information About Faculty <span class="text-danger">*</span></h4>
+                     <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                        </div>
+                        <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 60px;">
+                        </div>
+                     </div>
+                  </center>
+                  <div class="row mt-5">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="information_serial_number_1" type="text" class="form-control"
+                              placeholder="SL No. (Information About Faculty)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="name_1" type="text" class="form-control" placeholder="Name">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="designation_1" type="text" class="form-control" placeholder="Designation">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="qualification_1" type="text" class="form-control" placeholder="Qualification">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="teaching_experience_1" type="text" class="form-control" placeholder="Teaching Experience">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="date_of_appointment_1" type="text" class="form-control" placeholder="Date of Appointment">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="status_1" type="text" class="form-control" placeholder="Status FT/PT">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" style="margin-top: 50px;">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="information_serial_number_2" type="text" class="form-control"
+                              placeholder="SL No. (Information About Faculty)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="name_2" type="text" class="form-control" placeholder="Name">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="designation_2" type="text" class="form-control" placeholder="Designation">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="qualification_2" type="text" class="form-control" placeholder="Qualification">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="teaching_experience_2" type="text" class="form-control" placeholder="Teaching Experience">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="date_of_appointment_2" type="text" class="form-control" placeholder="Date of Appointment">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="status_2" type="text" class="form-control" placeholder="Status FT/PT">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" style="margin-top: 50px;">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="information_serial_number_3" type="text" class="form-control"
+                              placeholder="SL No. (Information About Faculty)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="name_3" type="text" class="form-control" placeholder="Name">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="designation_3" type="text" class="form-control" placeholder="Designation">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="qualification_3" type="text" class="form-control" placeholder="Qualification">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="teaching_experience_3" type="text" class="form-control" placeholder="Teaching Experience">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="date_of_appointment_3" type="text" class="form-control" placeholder="Date of Appointment">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="status_3" type="text" class="form-control" placeholder="Status FT/PT">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" style="margin-top: 50px;">
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="information_serial_number_4" type="text" class="form-control"
+                              placeholder="SL No. (Information About Faculty)">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="name_4" type="text" class="form-control" placeholder="Name">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="designation_4" type="text" class="form-control" placeholder="Designation">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="qualification_4" type="text" class="form-control" placeholder="Qualification">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="teaching_experience_4" type="text" class="form-control" placeholder="Teaching Experience">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="date_of_appointment_4" type="text" class="form-control" placeholder="Date of Appointment">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <input id="status_4" type="text" class="form-control" placeholder="Status FT/PT">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row" style="margin-top: 50px;">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Centre's Address (In Hindi) <span class="text-danger">*</span></label>
+                           <textarea id="center_address" type="text" class="form-control"></textarea>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Residential Address (In Hindi) <span class="text-danger">*</span></label>
+                           <textarea id="residential_address" type="text" class="form-control"></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <center>
+                     <h4 style="margin-top: 10px;" class="text-primary">The above information Given by me are
+                        find correct & sign under me
+                     </h4>
+                     <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                        </div>
+                        <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 60px;">
+                        </div>
+                     </div>
+                  </center>
+                  <div class="row mt-5">
+                     <div class="col-md-4">
+                        <div class="form-group first">
+                           <label>Find Correct & Sign Under Me <span class="text-danger">*</span></label>
+                        </div>
+                     </div>
+                     <div class="col-md-8">
+                        <div class="form-group first">
+                           <input id="signature" type="text" class="form-control" name="Name">
+                        </div>
+                     </div>
+                  </div>
+                  <center>
+                     <h4 style="margin-top: 50px;" class="text-black">For Head Office Use Only</h4>
+                     <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                        </div>
+                        <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 60px;">
+                        </div>
+                     </div>
+                  </center>
+                  <div class="row mt-5">
+                     <div class="col-md-4">
+                        <div class="form-group first">
+                           <label>Form Receiving Date <span class="text-danger">*</span></label>
+                           <input id="form_receive_date" type="text" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group first">
+                           <label>Affiliation Number <span class="text-danger">*</span></label>
+                           <input id="affliation_number" type="text" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Total Affiliation Fee <span class="text-danger">*</span></label>
+                           <input id="total_affliation_fee" type="text" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row mt-5">
+                     <div class="col-md-4">
+                        <div class="form-group first">
+                           <label>Registration Fee <span class="text-danger">*</span></label>
+                           <input id="registration_fee" type="text" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group first">
+                           <label>Amount Received <span class="text-danger">*</span></label>
+                           <select id="amount_status" class="form-control">
+                              <option value="">Select</option>
+                              {% for pym in payment_status %}
+                              <option value="{{pym.id}}">{{pym.amount_status}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Name of Bank <span class="text-danger">*</span></label>
+                           <input id="bank_name" type="text" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row mt-5">
+                     <div class="col-md-4">
+                        <div class="form-group first">
+                           <label>Receipt/Cheque/Draft No. <span class="text-danger">*</span></label>
+                           <input id="receipt_number" type="text" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group first">
+                           <label>Date <span class="text-danger">*</span></label>
+                           <input id="date" type="text" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group first">
+                           <label>Education Institution Type <span class="text-danger">*</span></label>
+                           <input id="education_institution_type" type="text" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row mt-5">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Affiliation From Date <span class="text-danger">*</span></label>
+                           <input id="affliation_from_date" type="text" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Affiliation To Date <span class="text-danger">*</span></label>
+                           <input id="affliation_to_date" type="text" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <input onclick="application_for_affiliationform()" type="button" value="Submit Application" class="btn px-5 btn-primary"
+                     style="background-color: #3446CD;" />
+               </form>
+            </div>
+         </div>
+      </div>
+      <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'forms/js/popper.min.js' %}"></script>
+      <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'forms/js/main.js' %}"></script>
+      <script>
+         function application_for_affiliationform() {
+             let name_of_institution = document.getElementById("name_of_institution").value;
+             console.log(name_of_institution);
+         
+             let mobile_number = document.getElementById("mobile_number").value;
+             console.log(mobile_number);
+         
+             let status_of_institution = document.getElementById("status_of_institution").value;
+             console.log(status_of_institution)
+
+             let email = document.getElementById("email").value;
+             console.log(email);
+
+             let status_of_institution_other = document.getElementById("status_of_institution_other").value;
+             console.log(status_of_institution_other)
+         
+             let year_of_establishment = document.getElementById("year_of_establishment").value;
+             console.log(year_of_establishment);
+         
+             let address = document.getElementById("address").value;
+             console.log(address);
+         
+             let pincode = document.getElementById("pincode").value;
+             console.log(pincode);
+         
+             let name_mpd = document.getElementById("name_mpd").value;
+             console.log(name_mpd);
+         
+             let education_qualification = document.getElementById("education_qualification").value;
+             console.log(education_qualification);
+         
+             let date_of_birth = document.getElementById("date_of_birth").value;
+             console.log(date_of_birth);
+         
+             let designation = document.getElementById("designation").value;
+             console.log(designation);
+         
+             let profession_experience = document.getElementById("profession_experience").value;
+             console.log(profession_experience);
+         
+             let postal_address = document.getElementById("postal_address").value;
+             console.log(postal_address);
+         
+             let number_of_room_1 = document.getElementById("number_of_room_1").value;
+             console.log(number_of_room_1);
+         
+             let seating_capacity_1 = document.getElementById("seating_capacity_1").value;
+             console.log(seating_capacity_1);
+         
+             let total_area_1 = document.getElementById("total_area_1").value;
+             console.log(total_area_1);
+         
+             let number_of_room_2 = document.getElementById("number_of_room_2").value;
+             console.log(number_of_room_2);
+         
+             let seating_capacity_2 = document.getElementById("seating_capacity_2").value;
+             console.log(seating_capacity_2);
+         
+             let total_area_2 = document.getElementById("total_area_2").value;
+             console.log(total_area_2);
+         
+             let number_of_room_3 = document.getElementById("number_of_room_3").value;
+             console.log(number_of_room_3);
+         
+             let seating_capacity_3 = document.getElementById("seating_capacity_3").value;
+             console.log(seating_capacity_3);
+         
+             let total_area_3 = document.getElementById("total_area_3").value;
+             console.log(total_area_3);
+         
+             let number_of_room_4 = document.getElementById("number_of_room_4").value;
+             console.log(number_of_room_4);
+         
+             let seating_capacity_4 = document.getElementById("seating_capacity_4").value;
+             console.log(seating_capacity_4);
+         
+             let total_area_4 = document.getElementById("total_area_4").value;
+             console.log(total_area_4);
+         
+             let number_of_room_5 = document.getElementById("number_of_room_5").value;
+             console.log(number_of_room_5);
+         
+             let seating_capacity_5 = document.getElementById("seating_capacity_5").value;
+             console.log(seating_capacity_5);
+         
+             let total_area_5 = document.getElementById("total_area_5").value;
+             console.log(total_area_5);
+         
+             let number_of_room_6 = document.getElementById("number_of_room_6").value;
+             console.log(number_of_room_6);
+         
+             let seating_capacity_6 = document.getElementById("seating_capacity_6").value;
+             console.log(seating_capacity_6);
+         
+             let total_area_6 = document.getElementById("total_area_6").value;
+             console.log(total_area_6);
+         
+             let serial_number1 = document.getElementById("serial_number_1").value;
+             console.log(serial_number1);
+         
+             let type_of_computer_1 = document.getElementById("type_of_computer_1").value;
+             console.log(type_of_computer_1);
+         
+             let number_terminal_1 = document.getElementById("number_terminal_1").value;
+             console.log(number_terminal_1);
+         
+             let year_of_purchase_1 = document.getElementById("year_of_purchase_1").value;
+             console.log(year_of_purchase_1);
+         
+             let cost_1 = document.getElementById("cost_1").value;
+             console.log(cost_1);
+         
+             let software_facility_1 = document.getElementById("software_facility_1").value;
+             console.log(software_facility_1);
+         
+             let other_facility_1 = document.getElementById("other_facility_1").value;
+             console.log(other_facility_1);
+         
+             let serial_number2 = document.getElementById("serial_number_2").value;
+             console.log(serial_number2);
+         
+             let type_of_computer_2 = document.getElementById("type_of_computer_2").value;
+             console.log(type_of_computer_2);
+         
+             let number_terminal_2 = document.getElementById("number_terminal_2").value;
+             console.log(number_terminal_2);
+         
+             let year_of_purchase_2 = document.getElementById("year_of_purchase_2").value;
+             console.log(year_of_purchase_2);
+         
+             let cost_2 = document.getElementById("cost_2").value;
+             console.log(cost_2);
+         
+             let software_facility_2 = document.getElementById("software_facility_2").value;
+             console.log(software_facility_2);
+         
+             let other_facility_2 = document.getElementById("other_facility_2").value;
+             console.log(other_facility_2);
+         
+             let serial_number3 = document.getElementById("serial_number_3").value;
+             console.log(serial_number3);
+         
+             let type_of_computer_3 = document.getElementById("type_of_computer_3").value;
+             console.log(type_of_computer_3);
+         
+             let number_terminal_3 = document.getElementById("number_terminal_3").value;
+             console.log(number_terminal_3);
+         
+             let year_of_purchase_3 = document.getElementById("year_of_purchase_3").value;
+             console.log(year_of_purchase_3);
+         
+             let cost_3 = document.getElementById("cost_3").value;
+             console.log(cost_3);
+         
+             let software_facility_3 = document.getElementById("software_facility_3").value;
+             console.log(software_facility_3);
+         
+             let other_facility_3 = document.getElementById("other_facility_3").value;
+             console.log(other_facility_3);
+         
+             let serial_number4 = document.getElementById("serial_number_4").value;
+             console.log(serial_number4);
+         
+             let type_of_computer_4 = document.getElementById("type_of_computer_4").value;
+             console.log(type_of_computer_4);
+         
+             let number_terminal_4 = document.getElementById("number_terminal_4").value;
+             console.log(number_terminal_4);
+         
+             let year_of_purchase_4 = document.getElementById("year_of_purchase_4").value;
+             console.log(year_of_purchase_4);
+         
+             let cost_4 = document.getElementById("cost_4").value;
+             console.log(cost_4);
+         
+             let software_facility_4 = document.getElementById("software_facility_4").value;
+             console.log(software_facility_4);
+         
+             let other_facility_4 = document.getElementById("other_facility_4").value;
+             console.log(other_facility_4);
+         
+             let serial_number_5 = document.getElementById("serial_number_5").value;
+             console.log(serial_number_5);
+         
+             let type_of_computer_5 = document.getElementById("type_of_computer_5").value;
+             console.log(type_of_computer_5);
+         
+             let number_terminal_5 = document.getElementById("number_terminal_5").value;
+             console.log(number_terminal_5);
+         
+             let year_of_purchase_5 = document.getElementById("year_of_purchase_5").value;
+             console.log(year_of_purchase_5);
+         
+             let cost_5 = document.getElementById("cost_5").value;
+             console.log(cost_5);
+         
+             let software_facility_5 = document.getElementById("software_facility_5").value;
+             console.log(software_facility_5);
+         
+             let other_facility_5 = document.getElementById("other_facility_5").value;
+             console.log(other_facility_5);
+         
+             let serial_number_6 = document.getElementById("serial_number_6").value;
+             console.log(serial_number_6);
+         
+             let type_of_computer_6 = document.getElementById("type_of_computer_6").value;
+             console.log(type_of_computer_6);
+         
+             let number_terminal_6 = document.getElementById("number_terminal_6").value;
+             console.log(number_terminal_6);
+         
+             let year_of_purchase_6 = document.getElementById("year_of_purchase_6").value;
+             console.log(year_of_purchase_6);
+         
+             let cost_6 = document.getElementById("cost_6").value;
+             console.log(cost_6);
+         
+             let software_facility_6 = document.getElementById("software_facility_6").value;
+             console.log(software_facility_6);
+         
+             let other_facility_6 = document.getElementById("other_facility_6").value;
+             console.log(other_facility_6);
+         
+             let information_serial_number_1 = document.getElementById("information_serial_number_1").value;
+             console.log(information_serial_number_1);
+         
+             let name_1 = document.getElementById("name_1").value;
+             console.log(name_1);
+         
+             let designation_1 = document.getElementById("designation_1").value;
+             console.log(designation_1);
+         
+             let qualification_1 = document.getElementById("qualification_1").value;
+             console.log(qualification_1);
+         
+             let teaching_experience_1 = document.getElementById("teaching_experience_1").value;
+             console.log(teaching_experience_1);
+         
+             let date_of_appointment_1 = document.getElementById("date_of_appointment_1").value;
+             console.log(date_of_appointment_1);
+         
+             let status_1 = document.getElementById("status_1").value;
+             console.log(status_1);
+         
+             let information_serial_number_2 = document.getElementById("information_serial_number_2").value;
+             console.log(information_serial_number_2);
+         
+             let name_2 = document.getElementById("name_2").value;
+             console.log(name_2);
+         
+             let designation_2 = document.getElementById("designation_2").value;
+             console.log(designation_2);
+         
+             let qualification_2 = document.getElementById("qualification_2").value;
+             console.log(qualification_2);
+         
+             let teaching_experience_2 = document.getElementById("teaching_experience_2").value;
+             console.log(teaching_experience_2);
+         
+             let date_of_appointment_2 = document.getElementById("date_of_appointment_2").value;
+             console.log(date_of_appointment_2);
+         
+             let status_2 = document.getElementById("status_2").value;
+             console.log(status_2);
+         
+             let information_serial_number_3 = document.getElementById("information_serial_number_3").value;
+             console.log(information_serial_number_3);
+         
+             let name_3 = document.getElementById("name_3").value;
+             console.log(name_3);
+         
+             let designation_3 = document.getElementById("designation_3").value;
+             console.log(designation_3);
+         
+             let qualification_3 = document.getElementById("qualification_3").value;
+             console.log(qualification_3);
+         
+             let teaching_experience_3 = document.getElementById("teaching_experience_3").value;
+             console.log(teaching_experience_3);
+         
+             let date_of_appointment_3 = document.getElementById("date_of_appointment_3").value;
+             console.log(date_of_appointment_3);
+         
+             let status_3 = document.getElementById("status_3").value;
+             console.log(status_3);
+         
+             let information_serial_number_4 = document.getElementById("information_serial_number_4").value;
+             console.log(information_serial_number_4);
+         
+             let name_4 = document.getElementById("name_4").value;
+             console.log(name_4);
+         
+             let designation_4 = document.getElementById("designation_4").value;
+             console.log(designation_4);
+         
+             let qualification_4 = document.getElementById("qualification_4").value;
+             console.log(qualification_4);
+         
+             let teaching_experience_4 = document.getElementById("teaching_experience_4").value;
+             console.log(teaching_experience_4);
+         
+             let date_of_appointment_4 = document.getElementById("date_of_appointment_4").value;
+             console.log(date_of_appointment_4);
+         
+             let status_4 = document.getElementById("status_4").value;
+             console.log(status_4);
+         
+             let center_address = document.getElementById("center_address").value;
+             console.log(center_address);
+         
+             let residential_address = document.getElementById("residential_address").value;
+             console.log(residential_address);
+         
+             let signature = document.getElementById("signature").value;
+             console.log(signature);
+         
+             let form_receive_date = document.getElementById("form_receive_date").value;
+             console.log(form_receive_date);
+         
+             let affliation_number = document.getElementById("affliation_number").value;
+             console.log(affliation_number);
+         
+             let total_affliation_fee = document.getElementById("total_affliation_fee").value;
+             console.log(total_affliation_fee);
+         
+             let registration_fee = document.getElementById("registration_fee").value;
+             console.log(registration_fee);
+         
+             let amount_status = document.getElementById("amount_status").value;
+             console.log(amount_status);
+         
+             let bank_name = document.getElementById("bank_name").value;
+             console.log(bank_name);
+         
+             let receipt_number = document.getElementById("receipt_number").value;
+             console.log(receipt_number);
+         
+             let date = document.getElementById("date").value;
+             console.log(date);
+         
+             let education_institution_type = document.getElementById("education_institution_type").value;
+             console.log(education_institution_type);
+         
+             let affliation_from_date = document.getElementById("affliation_from_date").value;
+             console.log(affliation_from_date);
+         
+             let affliation_to_date = document.getElementById("affliation_to_date").value;
+             console.log(affliation_to_date);
+         
+             let er  = document.getElementById("erorr")
+         
+             if (name_of_institution === "") {
+                 er.innerHTML = "Enter Name of Institution";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (mobile_number === "") {
+                 er.innerHTML = "Enter Mobile Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (status_of_institution === "") {
+                 er.innerHTML = "Select Type Of Institution";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (email === "") {
+                 er.innerHTML = "Enter Email";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (year_of_establishment === "") {
+                 er.innerHTML = "Enter year of Establishment";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (address === "") {
+                 er.innerHTML = "Enter Address";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (pincode === "") {
+                 er.innerHTML = "Enter Pincode";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (name_mpd === "") {
+                 er.innerHTML = "Enter Name of Manager/Principal/Director";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (education_qualification === "") {
+                 er.innerHTML = "Enter Education Qualification";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (date_of_birth === "") {
+                 er.innerHTML = "Select Date of Birth";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (designation === "") {
+                 er.innerHTML = "Enter Designation";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (profession_experience === "") {
+                 er.innerHTML = "Enter Experience";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (postal_address === "") {
+                 er.innerHTML = "Enter Postal Address";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+
+
+             } else if (number_of_room_1 === "") {
+                 er.innerHTML = "Enter Staff Room Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (seating_capacity_1 === "") {
+                 er.innerHTML = "Enter Staff Seat Capacity";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (total_area_1 === "") {
+                 er.innerHTML = "Enter Staff Total Area";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+
+
+             } else if (number_of_room_2 === "") {
+                 er.innerHTML = "Enter Class Room Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (seating_capacity_2 === "") {
+                 er.innerHTML = "Enter Class Seat Capacity";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (total_area_2 === "") {
+                 er.innerHTML = "Enter Class Total Area";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+
+
+             } else if (number_of_room_3 === "") {
+                 er.innerHTML = "Enter Laboratory Room Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (seating_capacity_3 === "") {
+                 er.innerHTML = "Enter Laboratory Seat Capacity";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (total_area_3 === "") {
+                 er.innerHTML = "Enter Laboratory Total Area";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+
+
+             } else if (number_of_room_4 === "") {
+                 er.innerHTML = "Enter Reception Room Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (seating_capacity_4 === "") {
+                 er.innerHTML = "Enter Reception Seat Capacity";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (total_area_4 === "") {
+                 er.innerHTML = "Enter Reception Total Area";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+
+            
+             } else if (number_of_room_5 === "") {
+                 er.innerHTML = "Enter Toilets Room Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (seating_capacity_5 === "") {
+                 er.innerHTML = "Enter Toilets Seat Capacity";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (total_area_5 === "") {
+                 er.innerHTML = "Enter Toilets Total Area";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+
+            //  } else if (number_of_room_6 === "") {
+            //      er.innerHTML = "Enter Any Others Room Number";
+            //      window.location.href = "#application_for_affiliation";
+            //      er.style.display = "block";
+            //  } else if (seating_capacity_6 === "") {
+            //      er.innerHTML = "Enter Any Others Seat Capacity";
+            //      window.location.href = "#application_for_affiliation";
+            //      er.style.display = "block";
+            //  } else if (total_area_6 === "") {
+            //      er.innerHTML = "Enter Any Others Total Area";
+            //      window.location.href = "#application_for_affiliation";
+            //      er.style.display = "block";
+
+
+
+             } else if (serial_number1 === "") {
+                 er.innerHTML = "Enter Laboratory Serial Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (type_of_computer_1 === "") {
+                 er.innerHTML = "Enter Type of Computer";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (number_terminal_1 === "") {
+                 er.innerHTML = "Enter The Terminal Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (year_of_purchase_1 === "") {
+                 er.innerHTML = "Enter Year Of Purchase";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (cost_1 === "") {
+                 er.innerHTML = "Enter Cost";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (software_facility_1 === "") {
+                 er.innerHTML = "Enter Software Facility";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (other_facility_1 === "") {
+                 er.innerHTML = "Enter Other Facility";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (information_serial_number_1 === "") {
+                 er.innerHTML = "Enter Serial Number of About Facility";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (name_1 === "") {
+                 er.innerHTML = "Enter Name";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (designation_1 === "") {
+                 er.innerHTML = "Enter Designation";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (qualification_1 === "") {
+                 er.innerHTML = "Enter Qualification";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (teaching_experience_1 === "") {
+                 er.innerHTML = "Enter Teaching Experience";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (date_of_appointment_1 === "") {
+                 er.innerHTML = "Select Date of Appointment";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (status_1 === "") {
+                 er.innerHTML = "Enter Status";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (center_address === "") {
+                 er.innerHTML = "Enter Center Address";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (residential_address === "") {
+                 er.innerHTML = "Enter Residential Address";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (signature === "") {
+                 er.innerHTML = "Enter Signature";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (form_receive_date === "") {
+                 er.innerHTML = "Select Received Date";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (affliation_number === "") {
+                 er.innerHTML = "Enter Affiliation Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (total_affliation_fee === "") {
+                 er.innerHTML = "Enter Total Affiliation Fees";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (registration_fee === "") {
+                 er.innerHTML = "Enter Registration Fees";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (amount_status === "") {
+                 er.innerHTML = "Select Amount Status";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (bank_name === "") {
+                 er.innerHTML = "Enter Bank Name";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (receipt_number === "") {
+                 er.innerHTML = "Enter Receipt/Cheque/Draft Number";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (date === "") {
+                 er.innerHTML = "Select Date";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (education_institution_type === "") {
+                 er.innerHTML = "Enter Education Institution Type";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (affliation_from_date === "") {
+                 er.innerHTML = "Select Affiliation From Date";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else if (affliation_to_date === "") {
+                 er.innerHTML = "Select Affiliation To Date";
+                 window.location.href = "#application_for_affiliation";
+                 er.style.display = "block";
+             } else {
+                 $.ajax({
+                     type: "post",
+                     url: "/application_for_affiliation",
+                     data: {
+                        name_of_institution:name_of_institution,
+                        mobile_number:mobile_number,
+                        status_of_institution:status_of_institution,
+                        email:email,
+                        status_of_institution_other:status_of_institution_other,
+                        year_of_establishment:year_of_establishment,
+                        address:address,
+                        pincode:pincode,
+                        name_mpd:name_mpd,
+                        education_qualification:education_qualification,
+                        date_of_birth:date_of_birth,
+                        designation:designation,
+                        profession_experience:profession_experience,
+                        postal_address:postal_address,
+                        number_of_room_1:number_of_room_1,
+                        seating_capacity_1:seating_capacity_1,
+                        total_area_1:total_area_1,
+                        number_of_room_2:number_of_room_2,
+                        seating_capacity_2:seating_capacity_2,
+                        total_area_2:total_area_2,
+                        number_of_room_3:number_of_room_3,
+                        seating_capacity_3:seating_capacity_3,
+                        total_area_3:total_area_3,
+                        number_of_room_4:number_of_room_4,
+                        seating_capacity_4:seating_capacity_4,
+                        total_area_4:total_area_4,
+                        number_of_room_5:number_of_room_5,
+                        seating_capacity_5:seating_capacity_5,
+                        total_area_5:total_area_5,
+                        number_of_room_6:number_of_room_6,
+                        seating_capacity_6:seating_capacity_6,
+                        total_area_6:total_area_6,
+                        serial_number1:serial_number1,
+                        type_of_computer_1:type_of_computer_1,
+                        number_terminal_1:number_terminal_1,
+                        year_of_purchase_1:year_of_purchase_1,
+                        cost_1:cost_1,
+                        software_facility_1:software_facility_1,
+                        other_facility_1:other_facility_1,
+                        serial_number2:serial_number2,
+                        type_of_computer_2:type_of_computer_2,
+                        number_terminal_2:number_terminal_2,
+                        year_of_purchase_2:year_of_purchase_2,
+                        cost_2:cost_2,
+                        software_facility_2:software_facility_2,
+                        other_facility_2:other_facility_2,
+                        serial_number3:serial_number3,
+                        type_of_computer_3:type_of_computer_3,
+                        number_terminal_3:number_terminal_3,
+                        year_of_purchase_3:year_of_purchase_3,
+                        cost_3:cost_3,
+                        software_facility_3:software_facility_3,
+                        other_facility_3:other_facility_3,
+                        serial_number4:serial_number4,
+                        type_of_computer_4:type_of_computer_4,
+                        number_terminal_4:number_terminal_4,
+                        year_of_purchase_4:year_of_purchase_4,
+                        cost_4:cost_4,
+                        software_facility_4:software_facility_4,
+                        other_facility_4:other_facility_4,
+                        serial_number_5:serial_number_5,
+                        type_of_computer_5:type_of_computer_5,
+                        number_terminal_5:number_terminal_5,
+                        year_of_purchase_5:year_of_purchase_5,
+                        cost_5:cost_5,
+                        software_facility_5:software_facility_5,
+                        other_facility_5:other_facility_5,
+                        serial_number_6:serial_number_6,
+                        type_of_computer_6:type_of_computer_6,
+                        number_terminal_6:number_terminal_6,
+                        year_of_purchase_6:year_of_purchase_6,
+                        cost_6:cost_6,
+                        software_facility_6:software_facility_6,
+                        other_facility_6:other_facility_6,
+                        information_serial_number_1:information_serial_number_1,
+                        name_1:name_1,
+                        designation_1:designation_1,
+                        qualification_1:qualification_1,
+                        teaching_experience_1:teaching_experience_1,
+                        date_of_appointment_1:date_of_appointment_1,
+                        status_1:status_1,
+                        information_serial_number_2:information_serial_number_2,
+                        name_2:name_2,
+                        designation_2:designation_2,
+                        qualification_2:qualification_2,
+                        teaching_experience_2:teaching_experience_2,
+                        date_of_appointment_2:date_of_appointment_2,
+                        status_2:status_2,
+                        information_serial_number_3:information_serial_number_3,
+                        name_3:name_3,
+                        designation_3:designation_3,
+                        qualification_3:qualification_3,
+                        teaching_experience_3:teaching_experience_3,
+                        date_of_appointment_3:date_of_appointment_3,
+                        status_3:status_3,
+                        information_serial_number_4:information_serial_number_4,
+                        name_4:name_4,
+                        designation_4:designation_4,
+                        qualification_4:qualification_4,
+                        teaching_experience_4:teaching_experience_4,
+                        date_of_appointment_4:date_of_appointment_4,
+                        status_4:status_4,
+                        center_address:center_address,
+                        residential_address:residential_address,
+                        signature:signature,
+                        form_receive_date:form_receive_date,
+                        affliation_number:affliation_number,
+                        total_affliation_fee:total_affliation_fee,
+                        registration_fee:registration_fee,
+                        amount_status:amount_status,
+                        bank_name:bank_name,
+                        receipt_number:receipt_number,
+                        date:date,
+                        education_institution_type:education_institution_type,
+                        affliation_from_date:affliation_from_date,
+                        affliation_to_date:affliation_to_date,
+                        csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+                     },
+                     success: function (response) {
+                         if (response === "Save") {
+                             er.setAttribute("class","text-center alert alert-success");
+                             er.style.display="block"
+                             er.innerHTML="Form submission Successfully"
+                             window.location.href="#application_for_affiliation"
+         
+                             setTimeout(()=>{
+                             window.location.href="/application_for_affiliation"
+         
+                             },4000)
+                             
+                         } else {
+                             alert("Ooops, something went wrong");
+                         }
+                     },
+                 });
+             }
+         }   
+      </script>
+      <script>
+         $(function(){
+         $("#date_of_birth").datepicker({
+          dateFormat: "yy-mm-dd"
+         });
+         });
+      </script>
+      <script>
+         $(function(){
+         $("#date_of_appointment_1").datepicker({
+          dateFormat: "yy-mm-dd"
+         });
+         });
+      </script>
+      <script>
+         $(function(){
+         $("#date_of_appointment_2").datepicker({
+          dateFormat: "yy-mm-dd"
+         });
+         });
+      </script>
+      <script>
+         $(function(){
+         $("#date_of_appointment_3").datepicker({
+          dateFormat: "yy-mm-dd"
+         });
+         });
+      </script>
+      <script>
+         $(function(){
+         $("#date_of_appointment_4").datepicker({
+          dateFormat: "yy-mm-dd"
+         });
+         });
+      </script>
+      <script>
+         $(function(){
+         $("#form_receive_date").datepicker({
+          dateFormat: "yy-mm-dd"
+         });
+         });
+      </script>
+      <script>
+         $(function(){
+         $("#date").datepicker({
+          dateFormat: "yy-mm-dd"
+         });
+         });
+      </script>
+      <script>
+         $(function(){
+         $("#affliation_from_date").datepicker({
+          dateFormat: "yy-mm-dd"
+         });
+         });
+      </script>
+      <script>
+         $(function(){
+         $("#affliation_to_date").datepicker({
+          dateFormat: "yy-mm-dd"
+         });
+         });
+      </script>
+      {% endblock %}
+   </div>
+</body>

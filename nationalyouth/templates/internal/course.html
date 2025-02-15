@@ -1,0 +1,279 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Course and College Page ------------------------------------>
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %} {% block main_content %} {% load static %}
+<div class="phStickyWrap">
+   {% include 'Main/header.html' %}
+</div>
+<body>
+   <div class="d-lg-flex half">
+      <div class="container">
+         <div class="row align-items-center justify-content-center">
+
+
+            <div class="d-lg-flex">
+                <div class="container mb-16">
+                   <div class="row align-items-center justify-content-center">
+                      <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                         <center>
+                            <h3>Vocational Course</h3>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                               <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                               </div>
+                               <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                               </div>
+                            </div>
+                         </center>
+                         <!-- <center>
+                            <p class="mb-4">Error Message Comes Here</p>
+                            </center> -->
+                         <section class="bg-light">
+                            <div class="table-responsive" id="no-more-tables">
+                               <table class="table bg-white">
+                                  <thead class="bg-dark text-light">
+                                     <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Course Name</th>
+                                        <th>Duration</th>
+                                        <th>Add On Exam Fees</th>
+                                        <th>Admission fees 1</th>
+                                        <th>Exam fees 1</th>
+                                        <th>Transcript fees 1</th>
+                                        <th>Total fee 1</th>
+                                        <th>Admission fees 2</th>
+                                        <th>Exam fees 2</th>
+                                        <th>Transcript fees 2</th>
+                                        <th>Total 2</th>
+                                        <th>Yearly Examm Fees</th>
+                                        <th>GST</th>
+                                     </tr>
+                                  </thead>
+                                  <tbody>
+                                    {% if vocational_course %}
+                                    {% for vc in vocational_course %}
+                                     <tr>
+                                       <td>{{forloop.counter}}</td>
+                                        <td>{{vc.course_name}}</td>
+                                        <td>{{vc.duration}}</td>
+                                        <td>{{vc.add_on_exam_fees}}</td>
+                                        <td>{{vc.admission_fee_1}}</td>
+                                        <td>{{vc.exam_fee_1}}</td>
+                                        <td>{{vc.transcript_fee_1}}</td>
+                                        <td>{{vc.total_fee_1}}</td>
+                                        <td>{{vc.admission_fee_2}}</td>
+                                        <td>{{vc.exam_fee_2}}</td>
+                                        <td>{{vc.transcript_fee_2}}</td>
+                                        <td>{{vc.total_fee_2}}</td>
+                                        <td>{{vc.yearly_exam_fee}}</td>
+                                        <td>{{vc.gst}}</td>
+                                     </tr>
+                                     {% endfor %}
+                                     {% else %}
+                                     <td>No Records Found</td>
+                                    {% endif %}
+                                  </tbody>
+                                 </table>
+                            </div>
+                         </section>
+                      </div>
+                   </div>
+                </div>
+            </div>
+            <div class="d-lg-flex">
+               <div class="container mb-16">
+                  <div class="row align-items-center justify-content-center">
+                     <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                        <center>
+                           <h3>CERTIFICATE COURSE</h3>
+                           <div style="display: flex; flex-direction: column; align-items: center;">
+                              <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                              </div>
+                              <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                              </div>
+                           </div>
+                        </center>
+                        <!-- <center>
+                           <p class="mb-4">Error Message Comes Here</p>
+                           </center> -->
+                        <section class="bg-light">
+                           <div class="table-responsive" id="no-more-tables">
+                              <table class="table bg-white">
+                                 <thead class="bg-dark text-light">
+                                    <tr>
+                                       <th>Sr. No.</th>
+                                       <th>Course Name</th>
+                                       <th>Duration</th>
+                                       <th>Add On Exam Fees</th>
+                                       <th>Admission Fees</th>
+                                       <th>Exam Fees</th>
+                                       <th>Transcript Fees</th>
+                                       <th>Total Fees</th>
+                                       <th>GST</th>
+                                       <th>Remarks</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                 {% if certificate_course %}
+                                 {% for cc in certificate_course %}
+                                    <tr>
+                                       <td>{{forloop.counter}}</td>
+                                       <td>{{cc.course_name}}</td>
+                                       <td>{{cc.duration}}</td>
+                                       <td>{{cc.add_on_exam_fees}}</td>
+                                       <td>{{cc.admission_fee_1}}</td>
+                                       <td>{{cc.exam_fee_1}}</td>
+                                       <td>{{cc.transcript_fee_1}}</td>
+                                       <td>{{cc.total_fee_1}}</td>
+                                       <td>{{cc.gst}}</td>
+                                       <td>{{cc.remark}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </section>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="d-lg-flex">
+               <div class="container mb-16">
+                  <div class="row align-items-center justify-content-center">
+                     <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                        <center>
+                           <h3>DIPLOMA PROGRAMME</h3>
+                           <div style="display: flex; flex-direction: column; align-items: center;">
+                              <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                              </div>
+                              <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                              </div>
+                           </div>
+                        </center>
+                        <!-- <center>
+                           <p class="mb-4">Error Message Comes Here</p>
+                           </center> -->
+                        <section class="bg-light">
+                           <div class="table-responsive" id="no-more-tables">
+                              <table class="table bg-white">
+                                 <thead class="bg-dark text-light">
+                                    <tr>
+                                       <th>Sr. No.</th>
+                                        <th>Course Name</th>
+                                        <th>Duration</th>
+                                        <th>Add On Exam Fees</th>
+                                        <th>Admission Fees</th>
+                                        <th>Exam Fees</th>
+                                        <th>Transcript Fees</th>
+                                        <th>Total Fees</th>
+                                        <th>GST</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                   {% if diploma_programme %}
+                                   {% for cc in diploma_programme %}
+                                    <tr>
+                                       <td>{{forloop.counter}}</td>
+                                       <td>{{cc.course_name}}</td>
+                                       <td>{{cc.duration}}</td>
+                                       <td>{{cc.add_on_exam_fees}}</td>
+                                       <td>{{cc.admission_fee_1}}</td>
+                                       <td>{{cc.exam_fee_1}}</td>
+                                       <td>{{cc.transcript_fee_1}}</td>
+                                       <td>{{cc.total_fee_1}}</td>
+                                       <td>{{cc.gst}}</td>
+                                       <td>{{cc.remark}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </section>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="d-lg-flex">
+               <div class="container mb-16">
+                  <div class="row align-items-center justify-content-center">
+                     <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                        <center>
+                           <h3>PG DIPLOMA PROGRAMME</h3>
+                           <div style="display: flex; flex-direction: column; align-items: center;">
+                              <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                              </div>
+                              <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                              </div>
+                           </div>
+                        </center>
+                        <!-- <center>
+                           <p class="mb-4">Error Message Comes Here</p>
+                           </center> -->
+                        <section class="bg-light">
+                           <div class="table-responsive" id="no-more-tables">
+                              <table class="table bg-white">
+                                 <thead class="bg-dark text-light">
+                                    <tr>
+                                       <th>Sr. No.</th>
+                                       <th>Course Name</th>
+                                       <th>Duration</th>
+                                       <th>Add On Exam Fees</th>
+                                       <th>Admission fees 1</th>
+                                       <th>Exam fees 1</th>
+                                       <th>Transcript fees 1</th>
+                                       <th>Total fee 1</th>
+                                       <th>Admission fees 2</th>
+                                       <th>Exam fees 2</th>
+                                       <th>Transcript fees 2</th>
+                                       <th>Total 2</th>
+                                       <th>Yearly Examm Fees</th>
+                                       <th>GST</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                   {% if pg_diploma_programmes %}
+                                   {% for pfdp in pg_diploma_programmes %}
+                                    <tr>
+                                      <td>{{forloop.counter}}</td>
+                                       <td>{{pfdp.course_name}}</td>
+                                       <td>{{pfdp.duration}}</td>
+                                       <td>{{pfdp.add_on_exam_fees}}</td>
+                                       <td>{{pfdp.admission_fee_1}}</td>
+                                       <td>{{pfdp.exam_fee_1}}</td>
+                                       <td>{{pfdp.transcript_fee_1}}</td>
+                                       <td>{{pfdp.total_fee_1}}</td>
+                                       <td>{{pfdp.admission_fee_2}}</td>
+                                       <td>{{pfdp.exam_fee_2}}</td>
+                                       <td>{{pfdp.transcript_fee_2}}</td>
+                                       <td>{{pfdp.total_fee_2}}</td>
+                                       <td>{{pfdp.yearly_exam_fee}}</td>
+                                       <td>{{pfdp.gst}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                    <td>No Records Found</td>
+                                   {% endif %}
+                                 </tbody>
+                                </table>
+                           </div>
+                        </section>
+                     </div>
+                  </div>
+               </div>
+            </div>
+              
+         </div>
+      </div>
+      <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'forms/js/popper.min.js' %}"></script>
+      <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'forms/js/main.js' %}"></script>
+      {% endblock %}
+   </div>
+</body>

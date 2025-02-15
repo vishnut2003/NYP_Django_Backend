@@ -1,0 +1,384 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Add On Programme Registration Page ------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %} {% block main_content %} {% load static %}
+<div class="phStickyWrap">
+    {% include 'Main/header.html' %}
+</div>
+
+<body>
+    <div class="d-lg-flex half">
+        <div class="container mb-16">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                    <center>
+                        <h3 id="add_on_programme">ADD-ON PROGRAMME(COLLEGES)</h3>
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                            </div>
+                            <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                            </div>
+                        </div>
+                    </center>
+                    <!-- <center>
+                  <p class="mb-4">Error Message Comes Here</p>
+                  </center> -->
+                    <div class="text-center alert alert-danger" id="erorr001" role="alert" style="display:none;"></div>
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Add-on Colleges <span class="text-danger">*</span></label>
+                                    <select class="form-control" id="college_name">
+                                        <option value="" selected>Select</option>
+                                        {% for cl in all_college_name %}
+                                        <option value="{{cl.id}}">{{cl.add_on_college_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Course Name <span class="text-danger">*</span></label>
+                                    <select class="form-control" id="course_name">
+                                        <option value="" selected>Select</option>
+                                        {% for cr in all_course_name %}
+                                        <option value="{{cr.id}}">{{cr.course_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Course Code <span class="text-danger">*</span></label>
+                                    <input id="course_code" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Student Name <span class="text-danger">*</span></label>
+                                    <input id="student_name" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group first">
+                                    <label>Address <span class="text-danger">*</span></label>
+                                    <textarea id="address" type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>ID Number <span class="text-danger">*</span></label>
+                                    <input id="id_number" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Contact Number <span class="text-danger">*</span></label>
+                                    <input id="contact_number" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Exam Fee <span class="text-danger">*</span></label>
+                                    <input id="exam_fees" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Amount <span class="text-danger">*</span></label>
+                                    <input id="amount" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Main Course <span class="text-danger">*</span></label>
+                                    <select id="main_course" class="form-control">
+                                        <option value="" selected>Select</option>
+                                        {% for mcr in all_main_course %}
+                                        <option value="{{mcr.id}}">{{mcr.main_course_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>College Co-ordinator Appoval <span class="text-danger">*</span></label>
+                                    <select id="college_status" class="form-control">
+                                        <option value="" selected>Select</option>
+                                        {% for st in all_status %}
+                                        <option value="{{st.id}}">{{st.status}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <input  type="button" onclick="akkcm()" value="Submit Application"
+                            class="btn px-5 btn-primary" style="background-color: #3446CD;" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            function akkcm() {
+                var collegeId = document.getElementById("college_name").value;
+                var courseId = document.getElementById("course_name").value;
+                var courseCode = document.getElementById("course_code").value;
+                var studentName = document.getElementById("student_name").value;
+                var address = document.getElementById("address").value;
+                var idNumber = document.getElementById("id_number").value;
+                var contactNumber = document.getElementById("contact_number").value;
+                var examFees = document.getElementById("exam_fees").value;
+                var amount = document.getElementById("amount").value;
+                var mainCourseId = document.getElementById("main_course").value;
+                var collegeStatusId = document.getElementById("college_status").value;
+                var er = document.querySelector("#erorr001");
+
+                console.log("College ID:", collegeId);
+                console.log("Course ID:", courseId);
+                console.log("Course Code:", courseCode);
+                console.log("Student Name:", studentName);
+                console.log("Address:", address);
+                console.log("ID Number:", idNumber);
+                console.log("Contact Number:", contactNumber);
+                console.log("Exam Fees:", examFees);
+                console.log("Amount:", amount);
+                console.log("Main Course ID:", mainCourseId);
+                console.log("College Status ID:", collegeStatusId);
+
+                if (collegeId === "") {
+                    er.innerHTML = "Select College";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (courseId === "") {
+                    er.innerHTML = "Select Course";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (courseCode === "") {
+                    er.innerHTML = "Enter Course Code";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (studentName === "") {
+                    er.innerHTML = "Enter Student Name";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (address === "") {
+                    er.innerHTML = "Enter Address";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (idNumber === "") {
+                    er.innerHTML = "Enter ID Number";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (contactNumber === "") {
+                    er.innerHTML = "Enter Contact Number";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (examFees === "") {
+                    er.innerHTML = "Enter Exam Fees";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (amount === "") {
+                    er.innerHTML = "Enter Amount";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (mainCourseId === "") {
+                    er.innerHTML = "Select Main Course";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                }
+                else if (collegeStatusId === "") {
+                    er.innerHTML = "Select Status";
+                    er.style.display = "block";
+                    window.location.href = "#add_on_programme";
+                    
+                } else {
+                    // Form data is valid, proceed with form submission
+                    $.ajax({
+                        type: "post",
+                        url: "/add_on_programme",
+                        data:{
+                            collegeId0: collegeId,
+                            courseId0: courseId,
+                            courseCode0: courseCode,
+                            studentName0: studentName,
+                            address0: address,
+                            idNumber0: idNumber,
+                            contactNumber0: contactNumber,
+                            examFees0: examFees,
+                            amount0: amount,
+                            mainCourseId0: mainCourseId,
+                            collegeStatusId0: collegeStatusId,
+                            csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val()
+                        },
+                        success: function (response) {
+                            if (response === "Save") {
+                                er.setAttribute("class", "text-center alert alert-success");
+                                er.style.display = "block";
+                                er.innerHTML = "Form submitted successfully.";
+                                window.location.href = "#add_on_programme";
+
+                                setTimeout(function () {
+                                    window.location.href = "/add_on_programme";
+                                }, 4000);
+                            } else {
+                                alert("Oops, something went wrong.");
+                            }
+                        },
+
+                    });
+                }
+            }
+        </script>
+
+        <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'forms/js/popper.min.js' %}"></script>
+        <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'forms/js/main.js' %}"></script>
+        <script>
+            function add_on_programmform() {
+                var collegeId = document.getElementById("college_name").value;
+                var courseId = document.getElementById("course_name").value;
+                var courseCode = document.getElementById("course_code").value;
+                var studentName = document.getElementById("student_name").value;
+                var address = document.getElementById("address").value;
+                var idNumber = document.getElementById("id_number").value;
+                var contactNumber = document.getElementById("contact_number").value;
+                var examFees = document.getElementById("exam_fees").value;
+                var amount = document.getElementById("amount").value;
+                var mainCourseId = document.getElementById("main_course").value;
+                var collegeStatusId = document.getElementById("college_status").value;
+                let er = document.getElementById("erorr")
+
+                console.log("College ID:", collegeId);
+                console.log("Course ID:", courseId);
+                console.log("Course Code:", courseCode);
+                console.log("Student Name:", studentName);
+                console.log("Address:", address);
+                console.log("ID Number:", idNumber);
+                console.log("Contact Number:", contactNumber);
+                console.log("Exam Fees:", examFees);
+                console.log("Amount:", amount);
+                console.log("Main Course ID:", mainCourseId);
+                console.log("College Status ID:", collegeStatusId);
+
+                if (collegeId === "") {
+                    er.innerHTML = "Select College";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (courseId === "") {
+                    er.innerHTML = "Select Course";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (courseCode === "") {
+                    er.innerHTML = "Enter Course Code";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (studentName === "") {
+                    er.innerHTML = "Enter Student Name";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (address === "") {
+                    er.innerHTML = "Enter Address";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (idNumber === "") {
+                    er.innerHTML = "Enter ID Number";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (contactNumber === "") {
+                    er.innerHTML = "Enter Contact Number";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (examFees === "") {
+                    er.innerHTML = "Enter Exam Fees";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (amount === "") {
+                    er.innerHTML = "Enter Amount";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (mainCourseId === "") {
+                    er.innerHTML = "Select Main Course";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else if (collegeStatusId === "") {
+                    er.innerHTML = "Select Status";
+                    window.location.href = "#add_on_programme";
+                    er.style.display = "block";
+                } else {
+                    $.ajax({
+                        type: "post",
+                        url: "/add_on_programme",
+                        data: {
+                            college_id: collegeId,
+                            course_id: courseId,
+                            course_code: courseCode,
+                            student_name: studentName,
+                            address: address,
+                            id_number: idNumber,
+                            contact_number: contactNumber,
+                            exam_fees: examFees,
+                            amount: amount,
+                            main_course_id: mainCourseId,
+                            college_status_id: collegeStatusId,
+                            csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+                        },
+                        success: function (response) {
+                            if (response === "Save") {
+                                er.setAttribute("class", "text-center alert alert-success");
+                                er.style.display = "block"
+                                er.innerHTML = "Form submission Successfully"
+                                window.location.href = "#add_on_programme"
+
+                                setTimeout(() => {
+                                    window.location.href = "/add_on_programme"
+
+                                }, 4000)
+
+                            } else {
+                                alert("Ooops, something went wrong");
+                            }
+                        },
+                    });
+                }
+            }   
+        </script>
+        {% endblock %}
+    </div>
+</body>

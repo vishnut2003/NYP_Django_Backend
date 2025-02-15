@@ -1,0 +1,112 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Add E-Office Files  Page ----------------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %} {% block main_content %} {% load static %}
+<div class="phStickyWrap">
+    {% include 'Main/header.html' %}
+</div>
+
+<body>
+    <div class="d-lg-flex">
+        <div class="container mb-16">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                    <center>
+                        <h3>E OFFICE FILES</h3>
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                            </div>
+                            <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                            </div>
+                        </div>
+                    </center>
+                    <!-- <center>
+                  <p class="mb-4">Error Message Comes Here</p>
+                  </center> -->
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a href="/e_office_files" class="btn px-5 btn-primary"
+                                style="background-color: #3446CD;">Application For Affiliation</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="/e_office_files_student_mark_list" class="btn px-5 btn-primary"
+                                style="background-color: #3446CD;">Student Mark <br>List</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="/e_office_files_daily_work_statement" class="btn px-5 btn-primary"
+                                style="background-color: #3446CD;">Daily Work Statement</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="/e_office_files_employee_live_status" class="btn px-5 btn-primary"
+                                style="background-color: #3446CD;">Employee Live Status</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="/e_office_files_pay_online_fees" class="btn px-5 btn-primary"
+                                style="background-color: #3446CD;">Pay Online Fees</a>
+                        </div>
+                    </div>
+                    <section class="bg-light mt-5">
+                        <div class="table-responsive" id="no-more-tables">
+                            <table class="table bg-white">
+                                <thead class="bg-dark text-light">
+                                    <tr>
+                                        <th>NAME OF THE INSTITUTION</th>
+                                        <th>ADDRESS</th>
+                                        <th>PIN CODE</th>
+                                        <th>PHONE/MOBILE</th>
+                                        <th>EMAIL ADDRESS</th>
+                                        <th>YEAR OF ESTABLISHMENT</th>
+                                        <th>STATUS OF THE INSTITUTION</th>
+                                        <th>STATUS OF THE INSTITUTION (OTHER)</th>
+                                        <th>NAME (MANAGER/PRINCIPAL/DIRECTOR)</th>
+                                        <th>DESIGNATION</th>
+                                        <th>EDUCATION QUALIFICATION</th>
+                                        <th>PROFESSIONAL EXPERIENCE</th>
+
+                                        <th>POSTAL ADDRESS (RESIDENCE)</th>
+                                        <th>NUMBER OF ROOMS (STAFF ROOM)</th>
+                                        <th>SEATING CAPACITY</th>
+                                        <th>TOTAL AREA (SQFT)</th>
+                                        <th>NUMBER OF ROOMS (CLASS ROOM)</th>
+                                        <th>SEATING CAPACITY</th>
+                                        <th>TOTAL AREA (SQFT)</th>
+                                        <th>FORM RECEIVING DATE</th>
+                                        <th>AFFILIATION NUMBER</th>
+                                        <th>TOTAL AFFILIATION FEE</th>
+                                        <th>REGISTRATION FEE</th>
+                                        <th>AMOUNT RECEIVED</th>
+                                        <th>NAME OF BANK</th>
+                                        <th>DATE</th>
+                                        <th>EDUCATION INSTITUTION TYPE</th>
+                                        <th>AFFILIATION FROM DATE</th>
+                                        <th>AFFILIATION TO DATE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Saving</td>
+                                        <td>00011</td>
+                                        <td>Affiliation Renewal</td>
+                                        <td></td>
+                                        <td>05/07/2021</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'forms/js/popper.min.js' %}"></script>
+        <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'forms/js/main.js' %}"></script>
+        {% endblock %}
+    </div>
+</body>

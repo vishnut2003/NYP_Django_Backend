@@ -1,0 +1,55 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- About Page ------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %}
+{% block main_content %}
+{% load static %}
+<div class="phStickyWrap">
+    {% include 'Main/header.html' %}
+</div>
+<article class="aboutMayorBlock pt-md-7 pt-xl-11 pb-7 pb-md-13 pb-lg-20 pb-xl-28" id="about_us">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 pt-7">
+                <h2 class="lh44 mb-2">About Us</h2>
+                <div
+                    style="width: 100px; height: 3px; background-color: #3446CD; margin-top: 2px; margin-bottom: 10px;">
+                </div>
+                <div style="width: 30px; height: 3px; background-color: #3446CD; margin-top: 2px; margin-bottom: 40px;">
+                </div>
+                <p>Youth Employability Skill Training (YEST-MSCS Act-2002)
+                    (National Youth Programme) (A Unit Under Government Autonomous Education Instituition) Society For
+                    Development of Technical Vocation Education NEW DELHI..registered under the aegis of ministry of
+                    co-operation, PTU AC 12A Government of India Department of labout government of Nct New Delhi,
+                    National Youth Program on ISO 9001-2008 Certified Instituition was established to provide vocational
+                    skill development training with sole in of improving the job aspirants with specific skill in
+                    private and government sector.</p>
+
+                <h2 class="lh44 mb-2">Our Mission</h2>
+                <div
+                    style="width: 100px; height: 3px; background-color: #3446CD; margin-top: 2px; margin-bottom: 10px;">
+                </div>
+                <div style="width: 30px; height: 3px; background-color: #3446CD; margin-top: 2px; margin-bottom: 40px;">
+                </div>
+                <p>we are National Youth program anything to prepare our students for a rapidly changing want by
+                    equipping them with critical thinking skills global perspective and respect for Core values of
+                    honesty integrity loyalty and compassion developing these skills is the corner stone of the
+                    education we offer students will have success for today and be prepared for tomorrow.</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="imgTwoImageHolder position-relative mt-7 mt-md-0 mb-20 mb-md-0">
+                    <span class="img img1 position-relative d-block mt-23">
+                        <img src="{% static 'main/images/homepage/about.png' %}" class="img-fluid"
+                            alt="image description">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+{% include 'Main/footer.html' %}
+{% endblock %}

@@ -1,0 +1,476 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- Add E Employee Records Page -------------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %} {% block main_content %} {% load static %}
+<div class="phStickyWrap">
+    {% include 'Main/header.html' %}
+</div>
+<body>
+    <div class="d-lg-flex half">
+        <div class="container mb-16">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+                    <center>
+                        <h3 id="e_employee_records">E-EMPLOYEE RECORDS</h3>
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                            </div>
+                            <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                            </div>
+                        </div>
+                    </center>
+                    <!-- <center>
+                  <p class="mb-4">Error Message Comes Here</p>
+                  </center> -->
+                    <div class="text-center alert alert-danger" id="erorr" role="alert" style="display:none;">
+                    </div>
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Employee Record Type <span class="text-danger">*</span></label>
+                                    <select id="employee_record_type" name="employee_record_type" class="form-control">
+                                        <option value="" selected>Select</option>
+                                        {% for emp in all_employee_record %}
+                                        <option value="{{emp.id}}">{{emp.employee_record_type}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Name <span class="text-danger">*</span></label>
+                                    <input id="name" name="name" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Designation <span class="text-danger">*</span></label>
+                                    <input id="designation" name="designation" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Employee Code <span class="text-danger">*</span></label>
+                                    <input id="employee_code" name="employee_code" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group first">
+                                    <label>Office Address <span class="text-danger">*</span></label>
+                                    <textarea id="office_address" name="office_address" type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group first">
+                                    <label>Home Address</label>
+                                    <textarea id="home_address" name="home_address" type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Contact Number <span class="text-danger">*</span></label>
+                                    <input id="contact_number" name="contact_number" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Aadhar Number <span class="text-danger">*</span></label>
+                                    <input id="aadhar_number" name="aadhar_number" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Husband / Wife Name <span class="text-danger">*</span></label>
+                                    <input id="husband_or_wife_name" name="husband_or_wife_name" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Father Name <span class="text-danger">*</span></label>
+                                    <input id="father_name" name="father_name" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Age (Father) <span class="text-danger">*</span></label>
+                                    <input id="age_of_father" name="age_of_father" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Mother Name <span class="text-danger">*</span></label>
+                                    <input id="mother_name" name="mother_name" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Age (Mother) <span class="text-danger">*</span></label>
+                                    <input id="age_of_mother" name="age_of_mother" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Child Name 1 <span class="text-danger">*</span></label>
+                                    <input id="child_name_1" name="child_name_1" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Age <span class="text-danger">*</span></label>
+                                    <input id="age_of_child_1" name="age_of_child_1" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Child Name 2</label>
+                                    <input id="child_name_2" name="child_name_2" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Age</label>
+                                    <input id="age_of_child_2" name="age_of_child_2" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Child Name 3</label>
+                                    <input id="child_name_3" name="child_name_3" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Age</label>
+                                    <input id="age_of_child_3" name="age_of_child_3" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Scale Of Pay <span class="text-danger">*</span></label>
+                                    <input id="scale_of_pay" name="scale_of_pay" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Employee Liability <span class="text-danger">*</span></label>
+                                    <input id="employee_liablity" name="employee_liablity" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Employee Promotion <span class="text-danger">*</span></label>
+                                    <input id="employee_promotion" name="employee_promotion" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Employee Grades <span class="text-danger">*</span></label>
+                                    <input id="employee_grade" name="employee_grade" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Salary <span class="text-danger">*</span></label>
+                                    <input id="salary" name="salary" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Advance <span class="text-danger">*</span></label>
+                                    <input id="advance" name="advance" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Bonus <span class="text-danger">*</span></label>
+                                    <input id="bonus" name="bonus" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Loan <span class="text-danger">*</span></label>
+                                    <input id="loan" name="loan" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group first">
+                                    <label>Note <span class="text-danger">*</span></label>
+                                    <textarea id="note" name="note" type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group first">
+                                    <label>Remarks <span class="text-danger">*</span></label>
+                                    <textarea id="remark" name="remark" type="text" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Suspension <span class="text-danger">*</span></label>
+                                    <input id="suspension" name="suspension" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Showcase Notice <span class="text-danger">*</span></label>
+                                    <input id="showcase_notice" name="showcase_notice" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <input onclick="fm_send()" type="button" value="Submit Form" class="btn px-5 btn-primary"
+                            style="background-color: #3446CD;" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'forms/js/popper.min.js' %}"></script>
+        <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'forms/js/main.js' %}"></script>
+
+        <script>
+
+            function fm_send() {
+                let employee_record_type = document.getElementById("employee_record_type").value;
+                let name = document.getElementById("name").value;
+                let designation = document.getElementById("designation").value;
+                let employee_code = document.getElementById("employee_code").value;
+                let office_address = document.getElementById("office_address").value;
+                let home_address = document.getElementById("home_address").value;
+                let contact_number = document.getElementById("contact_number").value;
+                let aadhar_number = document.getElementById("aadhar_number").value;
+                let husband_or_wife_name = document.getElementById("husband_or_wife_name").value;
+                let father_name = document.getElementById("father_name").value;
+                let age_of_father = document.getElementById("age_of_father").value;
+                let mother_name = document.getElementById("mother_name").value;
+                let age_of_mother = document.getElementById("age_of_mother").value;
+                let child_name_1 = document.getElementById("child_name_1").value;
+                let age_of_child_1 = document.getElementById("age_of_child_1").value;
+                let child_name_2 = document.getElementById("age_of_child_2").value;
+                let age_of_child_2 = document.getElementById("age_of_child_2").value;
+                let child_name_3 = document.getElementById("age_of_child_3").value;
+                let age_of_child_3 = document.getElementById("age_of_child_3").value;
+                let scale_of_pay = document.getElementById("scale_of_pay").value;
+                let employee_liablity = document.getElementById("employee_liablity").value;
+                let employee_promotion = document.getElementById("employee_promotion").value;
+                let employee_grade = document.getElementById("employee_grade").value;
+                let salary = document.getElementById("salary").value;
+                let advance= document.getElementById("advance").value;
+                let bonus = document.getElementById("bonus").value;
+                let loan = document.getElementById("loan").value;
+                let note = document.getElementById("note").value;
+                let remark = document.getElementById("remark").value;
+                let suspension = document.getElementById("suspension").value;
+                let showcase_notice = document.getElementById("showcase_notice").value;
+                let er=document.getElementById("erorr")
+                
+                if (employee_record_type === "") {
+                  er.innerHTML="Select Employee Record Type"
+                  window.location.href="#e_employee_records"
+                  er.style.display="block"
+                } else if (name === "") {
+                    er.innerHTML="Enter Name"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                }  else if (designation === "") {
+                    er.innerHTML="Enter Designation"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (employee_code === "") {
+                  er.innerHTML="Enter Employee Code"
+                  window.location.href="#e_employee_records"
+                  er.style.display="block"
+                }else if (office_address === "") {
+                    er.innerHTML="Enter Office Address"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (contact_number === "") {
+                    er.innerHTML="Enter Contact Number"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (aadhar_number === "") {
+                    er.innerHTML="Enter Aadhar Number"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (husband_or_wife_name === "") {
+                    er.innerHTML="Enter Husband/Wife name"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (father_name === "") {
+                    er.innerHTML="Enter Father Name"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (age_of_father === "") {
+                    er.innerHTML="Enter Father's Age"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (mother_name === "") {
+                    er.innerHTML="Enter Mother Name"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (age_of_mother === "") {
+                    er.innerHTML="Enter Mother's Age"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (child_name_1 === "") {
+                    er.innerHTML="Enter Child Name"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (age_of_child_1 === "") {
+                    er.innerHTML="Enter Child's Age"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (scale_of_pay === "") {
+                    er.innerHTML="Enter Scale of Pay"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (employee_liablity === "") {
+                    er.innerHTML="Enter Employee Liablity"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (employee_promotion === "") {
+                    er.innerHTML="Enter Employee Promotion"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (employee_grade === "") {
+                    er.innerHTML="Enter Employee Grade"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (salary === "") {
+                    er.innerHTML="Enter Employee Salary"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (advance === "") {
+                    er.innerHTML="Enter Employee Advance"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (bonus === "") {
+                    er.innerHTML="Enter Employee Bonus"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (loan === "") {
+                    er.innerHTML="Enter Employee Loan"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (note === "") {
+                    er.innerHTML="Enter Note"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (remark === "") {
+                    er.innerHTML="Enter Remark"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (suspension === "") {
+                    er.innerHTML="Enter Employee Suspension"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else if (showcase_notice === "") {
+                    er.innerHTML="Enter Showcase Notice"
+                    window.location.href="#e_employee_records"
+                    er.style.display="block"
+                } else {
+                    $.ajax({
+                        type: "post",
+                        url: "/e_employee_records",
+                        data: {
+                            employee_record_type: employee_record_type,
+                            name: name,
+                            designation: designation,
+                            employee_code: employee_code,
+                            office_address: office_address,
+                            home_address: home_address,
+                            contact_number: contact_number,
+                            aadhar_number: aadhar_number,
+                            husband_or_wife_name: husband_or_wife_name,
+                            father_name: father_name,
+                            age_of_father: age_of_father,
+                            mother_name: mother_name,
+                            age_of_mother: age_of_mother,
+                            child_name_1: child_name_1,
+                            age_of_child_1: age_of_child_1,
+                            child_name_2: child_name_2,
+                            age_of_child_2: age_of_child_2,
+                            child_name_3: child_name_3,
+                            age_of_child_3: age_of_child_3,
+                            scale_of_pay: scale_of_pay,
+                            employee_liablity: employee_liablity,
+                            employee_promotion: employee_promotion,
+                            employee_grade: employee_grade,
+                            salary:salary,
+                            advance: advance,
+                            bonus: bonus,
+                            loan:loan,
+                            note: note,
+                            remark: remark,
+                            suspension:suspension,
+                            showcase_notice:showcase_notice,
+                            csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+                        },
+                        success: function (response) {
+                            if (response === "Save") {
+                                er.setAttribute("class","text-center alert alert-success");
+                                er.style.display="block"
+                                er.innerHTML="Form submission Successfully"
+                                window.location.href="#e_employee_records"
+    
+                                setTimeout(()=>{
+                                  window.location.href="/e_employee_records"
+    
+                                },4000)
+                                
+                            } else {
+                                alert("Ooops, something went wrong");
+                            }
+                        },
+                    });
+                }
+            }
+            
+        </script>
+
+
+
+        {% endblock %}
+    </div>
+</body>

@@ -1,0 +1,334 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- E-Employee Live Status Page -------------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %}
+{% block main_content %}
+{% load static %}
+<div class="phStickyWrap">
+   {% include 'Main/header.html' %}
+</div>
+<body>
+   <div class="d-lg-flex half">
+   <div class="container mb-16">
+      <div class="row align-items-center justify-content-center">
+         <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+            <center>
+               <h3 id="e_employee_live_status">E-Employee Live Status</h3>
+               <div style="display: flex; flex-direction: column; align-items: center;">
+                  <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                  </div>
+                  <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                  </div>
+               </div>
+            </center>
+            <!-- <center>
+               <p class="mb-4">Error Message Comes Here</p>
+               </center> -->
+               <div class="text-center alert alert-danger" id="erorr" role="alert" style="display:none;"></div>
+
+
+                <!---------------------------------- Employee Select Status ------------------------------------------------->
+               <!------------------------------------------------------------------------------------------------------------>
+               <form style="margin-top: 100px;" action="#" method="post">
+                  {% csrf_token %}
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group first">
+                           <label>Employee Live / Leave <span class="text-danger">*</span></label>
+                           <select class="form-control" id="Employee_Live">
+                              <option value="0" selected>Select</option>
+                              {% for empl in employee_live %}
+                              <option value="{{empl.id}}">{{empl.employee_live_and_leave_status}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Employee ID Number <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_ID_Number" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Employee Name <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_Namec" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <input type="button" onclick="live_status_em()" value="Submit Form" class="btn px-5 btn-primary"
+                     style="background-color: #3446CD;" />
+               </form>
+               <!------------------------------------------------------------------------------------------------------------>
+               <!------------------------------------------------------------------------------------------------------------>
+
+
+
+
+               <!---------------------------------- Employee Live Status --------------------------------------------------->
+               <!------------------------------------------------------------------------------------------------------------>
+
+               <form style="margin-top: 100px;" action="#" method="post">
+                  {% csrf_token %}
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group first">
+                           <label>Employee Live / Leave <span class="text-danger">*</span></label>
+                           <select class="form-control" id="Employee_Live">
+                              <option value="" selected>Select</option>
+                              {% for empl in employee_live %}
+                              <option value="{{empl.id}}">{{empl.employee_live_and_leave_status}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Employee ID Number <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_ID_Number" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Employee Name <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_Namec" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Purpose 1 <span class="text-danger">*</span></label>
+                           <textarea type="text" id="Employee_ID_Number" class="form-control"></textarea>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Walking Distance <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_Namec" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Purpose 2 <span class="text-danger">*</span></label>
+                           <textarea type="text" id="Employee_ID_Number" class="form-control"></textarea>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Walking Distance <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_Namec" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Purpose 3 <span class="text-danger">*</span></label>
+                           <textarea type="text" id="Employee_ID_Number" class="form-control"></textarea>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Walking Distance <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_Namec" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Staff (Out Time) <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_ID_Number" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Staff (In Time) <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_Namec" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Status <span class="text-danger">*</span></label>
+                           <select id="current_status" class="form-control">
+                              <option value="" selected>Select</option>
+                              {% for wk in all_status %}
+                              <option value="{{wk.id}}">{{wk.status}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Remark <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_Namec" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <input type="button" onclick="" value="Submit Form" class="btn px-5 btn-primary"
+                     style="background-color: #3446CD;" />
+               </form>
+
+               <!------------------------------------------------------------------------------------------------------------>
+               <!------------------------------------------------------------------------------------------------------------>
+
+
+               <!---------------------------------- Employee Leave Status --------------------------------------------------->
+               <!------------------------------------------------------------------------------------------------------------>
+
+               <form style="margin-top: 100px;" action="#" method="post">
+                  {% csrf_token %}
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group first">
+                           <label>Employee Live / Leave <span class="text-danger">*</span></label>
+                           <select class="form-control" id="Employee_Live">
+                              <option value="" selected>Select</option>
+                              {% for empl in employee_live %}
+                              <option value="{{empl.id}}">{{empl.employee_live_and_leave_status}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Employee ID Number <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_ID_Number" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Employee Name <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_Namec" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Nature Of Leave <span class="text-danger">*</span></label>
+                           <select id="current_status" class="form-control">
+                              <option value="" selected>Select</option>
+                              {% for nl in all_nature_of_leave %}
+                              <option value="{{nl.id}}">{{nl.nature_of_leave}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Remark <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_Namec" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Date <span class="text-danger">*</span></label>
+                           <input type="text" id="Employee_ID_Number" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group first">
+                           <label>Status <span class="text-danger">*</span></label>
+                           <select id="current_status" class="form-control">
+                              <option value="" selected>Select</option>
+                              {% for wk in all_status %}
+                              <option value="{{wk.id}}">{{wk.status}}</option>
+                              {% endfor %}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <input type="button" onclick="" value="Submit Form" class="btn px-5 btn-primary"
+                     style="background-color: #3446CD;" />
+               </form>
+
+               <!------------------------------------------------------------------------------------------------------------>
+               <!------------------------------------------------------------------------------------------------------------>
+            </div>
+         </div>
+      </div>
+
+
+
+      <script>
+
+         function live_status_em() {
+            let Employee_Live = document.getElementById("Employee_Live").value;
+            let Employee_ID_Number = document.getElementById("Employee_ID_Number").value;
+            let Employee_Namec = document.getElementById("Employee_Namec").value;
+            let er=document.getElementById("erorr")
+
+            if (Employee_Live === "") {
+               er.innerHTML = "Select Employee Status";
+               window.location.href = "#e_employee_live_status";
+               er.style.display = "block";
+            } else if (Employee_ID_Number === "") {
+               er.innerHTML = "Enter Employee ID Number";
+               window.location.href = "#e_employee_live_status";
+               er.style.display = "block";
+            } else if (Employee_Namec === "") {
+               er.innerHTML = "Enter Employee Name";
+               window.location.href = "#e_employee live status";
+               er.style.display = "block";
+
+            } else {
+               $.ajax({
+                  type: "post",
+                  url: "/e_employee_live_status",
+                  data: {
+                     Employee_Live: Employee_Live,
+                     Employee_ID_Number: Employee_ID_Number,
+                     Employee_Namec: Employee_Namec,
+
+                     csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+                  },
+                  success: function (response) {
+                     if (response === "Save") {
+                        er.setAttribute("class", "text-center alert alert-success");
+                        er.style.display = "block"
+                        er.innerHTML = "Form submission Successfully"
+                        window.location.href = "#e_employee_live_status"
+
+                        setTimeout(() => {
+                           window.location.href = "/e_employee_live_status"
+
+                        }, 4000)
+
+                     } else {
+                        alert("Ooops, something went wrong");
+                     }
+                  },
+               });
+            }
+         }
+
+
+      </script>
+      <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'forms/js/popper.min.js' %}"></script>
+      <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'forms/js/main.js' %}"></script>
+
+      <script>
+        
+      </script>
+</body>
+{% endblock %}

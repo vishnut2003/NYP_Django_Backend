@@ -1,0 +1,52 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- E-Students Certification Verification Page ----------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %}
+{% block main_content %}
+{% load static %}
+<div class="phStickyWrap">
+   {% include 'Main/header.html' %}
+</div>
+<body>
+   <div class="d-lg-flex half">
+   <div class="container mb-16">
+      <div class="row align-items-center justify-content-center">
+         <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15">
+            <center>
+               <h3>E-Students Certification Verification</h3>
+               <div style="display: flex; flex-direction: column; align-items: center;">
+                  <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                  </div>
+                  <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 55px;">
+                  </div>
+               </div>
+            </center>
+            <!-- <center>
+               <p class="mb-4">Error Message Comes Here</p>
+               </center> -->
+            <form style="margin-top: 100px;" action="#" method="post">
+               {% csrf_token %}
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="form-group first">
+                        <label">Enter Register Number</label>
+                        <input name="registration_number" type="text" class="form-control">
+                     </div>
+                  </div>
+               </div>
+               <input type="submit" value="Search" class="btn px-5 btn-primary"
+                  style="background-color: #3446CD;" />
+            </form>
+         </div>
+      </div>
+   </div>
+   <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+   <script src="{% static 'forms/js/popper.min.js' %}"></script>
+   <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'forms/js/main.js' %}"></script>
+</body>
+{% endblock %}

@@ -1,0 +1,155 @@
+<!--
+   Made By -: Techzniczone
+   website - :https://www.techzniczone.com/
+   email - :techzniczone@gmail.com
+   -->
+<!-------------------------------------- E Office Queue Files Page ---------------------------------->
+<!--------------------------------------------------------------------------------------------------->
+{% extends 'Main/base.html' %} {% block main_content %} {% load static %}
+<div class="phStickyWrap">
+    {% include 'Main/header.html' %}
+</div>
+
+<body>
+    <div class="d-lg-flex half">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12 col-md-12 col-sm-6 py-5 pt-15 pb-15">
+                    <center>
+                        <h3 id="e_office_queue_files">E OFFICE QUEUE FILES</h3>
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100px; height: 3px; background-color: #3446CD; margin-bottom: 10px;">
+                            </div>
+                            <div style="width: 30px; height: 3px; background-color: #3446CD; margin-bottom: 60px;">
+                            </div>
+                        </div>
+                    </center>
+                    <!-- <center>
+                  <p class="mb-4">Error Message Comes Here</p>
+                  </center> -->
+                    <div class="text-center alert alert-danger" id="erorr" role="alert" style="display:none;">
+                    </div>
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Queue Number <span class="text-danger">*</span></label>
+                                    <input id="queue_number" name="queue_number" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>File Subject <span class="text-danger">*</span></label>
+                                    <input id="file_subject" name="file_subject" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Remarks <span class="text-danger">*</span></label>
+                                    <input id="remark" name="remark" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Approval First Officer <span class="text-danger">*</span></label>
+                                    <select id="approval_first_officer" name="approval_first_officer" class="form-control">
+                                        <option value="" selected>Select</option>
+                                        {% for st in all_status %}
+                                        <option value="{{st.id}}">{{st.status}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group first">
+                                    <label>Approval Second Officer <span class="text-danger">*</span></label>
+                                    <select id="approval_second_officer" name="approval_second_officer" class="form-control">
+                                        <option value="" selected>Select</option>
+                                        {% for st in all_status %}
+                                        <option value="{{st.id}}">{{st.status}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <input onclick="fm_send()" type="button" value="Approval" class="btn px-5 btn-primary"
+                            style="background-color: #3446CD;" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'forms/js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'forms/js/popper.min.js' %}"></script>
+        <script src="{% static 'forms/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'forms/js/main.js' %}"></script>
+        <script>
+        function fm_send() {
+            let queue_number = document.getElementById("queue_number").value;
+            let file_subject = document.getElementById("file_subject").value;
+            let remark = document.getElementById("remark").value;
+            let approval_first_officer = document.getElementById("approval_first_officer").value;
+            let approval_second_officer = document.getElementById("approval_second_officer").value;
+            let er=document.getElementById("erorr")
+
+            if (queue_number === "") {
+              er.innerHTML="Enter Queue Number"
+              window.location.href="#e_office_queue_files"
+              er.style.display="block"
+            } else if (file_subject === "") {
+                er.innerHTML="Enter File Subject"
+                window.location.href="#e_office_queue_files"
+                er.style.display="block"
+            } else if (remark === "") {
+                er.innerHTML="Enter File Remark"
+                window.location.href="#e_office_queue_files"
+                er.style.display="block"
+            } else if (approval_first_officer === "") {
+                er.innerHTML="Select First Officer First Approval"
+                window.location.href="#e_office_queue_files"
+                er.style.display="block"
+            } else if (approval_second_officer === "") {
+                er.innerHTML="Select Second Officer First Approval"
+                window.location.href="#e_office_queue_files"
+                er.style.display="block"
+            } else {
+                $.ajax({
+                    type: "post",
+                    url: "/e_office_queue_files",
+                    data: {
+                        queue_number: queue_number,
+                        file_subject: file_subject,
+                        remark: remark,
+                        approval_first_officer: approval_first_officer,
+                        approval_second_officer: approval_second_officer,
+                        csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+                    },
+                    success: function (response) {
+                        if (response === "Save") {
+                            er.setAttribute("class","text-center alert alert-success");
+                            er.style.display="block"
+                            er.innerHTML="Form submission Successfully"
+                            window.location.href="#e_office_queue_files"
+
+                            setTimeout(()=>{
+                              window.location.href="/e_office_queue_files"
+
+                            },4000)
+
+                        } else {
+                            alert("Ooops, something went wrong");
+                        }
+                    },
+                });
+            }
+        }
+
+        </script>
+        {% endblock %}
+    </div>
+</body>
